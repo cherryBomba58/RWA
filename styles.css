@@ -1,0 +1,17 @@
+﻿body {
+	background-color: #00FFFF;
+}
+
+table, th, td {
+	background-color: #66FF33;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+p {
+	font-size: 110%;
+}
+
+h1, p {
+	text-align: center
+}
