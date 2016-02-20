@@ -1,17 +1,36 @@
 ﻿body {
 	background-color: #00FFFF;
+	font-size: 105%;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 table, th, td {
-	background-color: #66FF33;
 	border: 1px solid black;
 	border-collapse: collapse;
 }
 
-p {
-	font-size: 110%;
+table {
+	width: 100%;
+}
+
+td {
+	background-color: #66FF33;
+}
+
+th {
+	background-color: #009900;
 }
 
 h1, p, form {
 	text-align: center
+}
+
+input {
+	margin-bottom: 8px;
+}
+
+div {
+	padding-top: 16px;
+	padding-left: 8px;
+	padding-right: 8px;
 }
