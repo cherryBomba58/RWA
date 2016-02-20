@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="hu">
 
 <head>
+	<meta charset="UTF-8">
 	<title>Tárgyfeltöltő felület</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
@@ -9,9 +10,24 @@
 <body>
 
 	<h1>Tárgyfeltöltő felület</h1>
-	<p>Kérlek add meg az alábbi adatokat egy tárgyadról, hogy felvehessük a táblázatba!</p>
+	<p>Kérlek add meg az alábbi adatokat egy tárgyadról,
+	hogy felvehessük a táblázatba!</p>
 	
-	<p>
+	<div>
+		<form>
+			Tárgykód:<br>
+			<input type="text" name="code"><br>
+			Tárgynév:<br>
+			<input type="text" name="name"><br>
+			Kredit:<br>
+			<input type="number" name="credit"><br>
+			Tárgyfelelős:<br>
+			<input type="text" name="teacher"><br><br>
+			<input type="button" value="Felveszem!"><br><br>
+		</form>
+	</div>
+	
+	<div>
 		<table style="width:100%">
 			<tr>
 				<th>Tárgykód</th>
@@ -51,7 +67,7 @@
 			</tr>
 
 		</table>
-	</p>
+	</div>
 
 </body>
 
