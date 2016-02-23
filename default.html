@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tárgyfeltöltő felület</title>
 	<link rel="stylesheet" href="styles.css">
+	<script src="scripts.js"></script>
 </head>
 
 <body>
@@ -17,19 +18,19 @@
 	<div>
 		<form>
 			Tárgykód:<br>
-			<input type="text" name="code"><br>
+			<input type="text" id="code"><br>
 			Tárgynév:<br>
-			<input type="text" name="name"><br>
+			<input type="text" id="name"><br>
 			Kredit:<br>
-			<input type="number" name="credit"><br>
+			<input type="number" id="credit"><br>
 			Tárgyfelelős:<br>
-			<input type="text" name="teacher"><br><br>
-			<input type="button" value="Felveszem!"><br>
+			<input type="text" id="teacher"><br><br>
+			<button onclick="addRow()">Felveszem!</button><br>
 		</form>
 	</div>
 	
-	<div style="overflow:auto;">
-		<table>
+	<div style="overflow:auto;" id="table">
+		<table id="tab">
 			<tr>
 				<th>Tárgykód</th>
 				<th>Tárgynév</th>
