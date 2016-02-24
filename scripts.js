@@ -3,23 +3,19 @@
 	
 	
 	var td1 = document.createElement("td");
-	var w1 = document.createTextNode(document.getElementById("code").innerHTML);
-	//var w1 = document.createTextNode("ddd");
+	var w1 = document.createTextNode(document.getElementById("code").value);
 	td1.appendChild(w1);		
 		
 	var td2 = document.createElement("td");
-	var w2 = document.createTextNode(document.getElementById("name").innerHTML);
-	//var w2 = document.createTextNode("ZZZ");
+	var w2 = document.createTextNode(document.getElementById("name").value);
 	td2.appendChild(w2);
 		
 	var td3 = document.createElement("td");
-	var w3 = document.createTextNode(document.getElementById("credit").innerHTML);
-	//var w3 = document.createTextNode("666");
+	var w3 = document.createTextNode(document.getElementById("credit").value);
 	td3.appendChild(w3);
 	
 	var td4 = document.createElement("td");
-	var w4 = document.createTextNode(document.getElementById("teacher").innerHTML);
-	//var w4 = document.createTextNode("hhh");
+	var w4 = document.createTextNode(document.getElementById("teacher").value);
 	td4.appendChild(w4);
 	
 		
@@ -31,6 +27,8 @@
 	var tab = document.getElementById("tab");
 	tab.appendChild(trr);
 	
-	//var table = document.getElementById("table");
-	//table.appendChild(tab);
+	var di = document.getElementById("di");
+	di.appendChild(tab);
+	
+	document.appendChild(di);
 }
