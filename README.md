@@ -1,1 +1,3 @@
-# RWA
+# Responsive web apps
+##### This is my university project where I'm practising web development.
+##### Technologies included: HTML, CSS, JavaScript, Angular, Bootstrap, ...
