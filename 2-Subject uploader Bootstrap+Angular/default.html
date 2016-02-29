@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tárgyfeltöltő felület</title>
+	<link rel="stylesheet" 
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+	</script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<h1>Tárgyfeltöltő felület</h1>
+		<p>Kérlek add meg az alábbi adatokat egy tárgyadról,
+		hogy felvehessük a táblázatba!</p>
+	</div>
+		
+	<div class="container">
+		<form>
+			Tárgykód:<br>
+			<input type="text" id="code"><br>
+			Tárgynév:<br>
+			<input type="text" id="name"><br>
+			Kredit:<br>
+			<input type="number" id="credit"><br>
+			Tárgyfelelős:<br>
+			<input type="text" id="teacher"><br><br>
+		</form>
+		<button>Felveszem!</button><br>
+	</div>
+		
+	<div style="overflow:auto;" class="container-fluid">
+		<table id="tab">
+			<tr>
+				<th>Tárgykód</th>
+				<th>Tárgynév</th>
+				<th>Kredit</th>
+				<th>Tárgyfelelős</th>
+			</tr>
+			<tr>
+				<td>BMEVIAUA300</td>
+				<td>Önálló laboratórium</td>
+				<td>6</td>
+				<td>Gipsz Jakab</td>
+			</tr>
+			<tr>
+				<td>BMEVIAUA350</td>
+				<td>Informatikai technológiák laboratórium</td>
+				<td>2</td>
+				<td>Tóth László</td>
+			</tr>
+			<tr>
+				<td>BMEVIAUA360</td>
+				<td>Adatvezérelt alkalmazások fejlesztése</td>
+				<td>4</td>
+				<td>Szabó Zoltán</td>
+			</tr>
+			<tr>
+				<td>RXFVKBTA270</td>
+				<td>Bűbájtan</td>
+				<td>2</td>
+				<td>Perseus Piton</td>
+			</tr>
+			<tr>
+				<td>HRVBKRTA120</td>
+				<td>Történelem</td>
+				<td>5</td>
+				<td>ifj. Henry Jones</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+
+</html>
