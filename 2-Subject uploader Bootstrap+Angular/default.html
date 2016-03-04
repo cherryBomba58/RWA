@@ -16,64 +16,76 @@
 <body>
 
 	<div class="container-fluid">
-		<h1>Tárgyfeltöltő felület</h1>
-		<p>Kérlek add meg az alábbi adatokat egy tárgyadról,
+		<div class="page-header">
+			<h1 class="text-center">Tárgyfeltöltő felület</h1>
+		</div>
+		<p class="text-center">Kérlek add meg az alábbi adatokat egy tárgyadról,
 		hogy felvehessük a táblázatba!</p>
 	</div>
 		
 	<div class="container">
-		<form>
-			Tárgykód:<br>
-			<input type="text" id="code"><br>
-			Tárgynév:<br>
-			<input type="text" id="name"><br>
-			Kredit:<br>
-			<input type="number" id="credit"><br>
-			Tárgyfelelős:<br>
-			<input type="text" id="teacher"><br><br>
+		<form role="form">
+			<div class="form-group">
+				<label for="code">Tárgykód:</label>
+				<input class="form-control" type="text" id="code">
+			</div>	
+			<div class="form-group">
+				<label for="name">Tárgynév:</label>
+				<input class="form-control" type="text" id="name">
+			</div>
+			<div class="form-group">
+				<label for="credit">Kredit:</label>
+				<input class="form-control" type="number" id="credit">
+			</div>
+			<div class="form-group">
+				<label for="teacher">Tárgyfelelős:</label>
+				<input class="form-control" type="text" id="teacher"><br>
+			</div>
 		</form>
-		<button>Felveszem!</button><br>
+		<button type="button" class="btn btn-default">Felveszem!</button><br><br>
 	</div>
 		
-	<div style="overflow:auto;" class="container-fluid">
-		<table id="tab">
-			<tr>
-				<th>Tárgykód</th>
-				<th>Tárgynév</th>
-				<th>Kredit</th>
-				<th>Tárgyfelelős</th>
-			</tr>
-			<tr>
-				<td>BMEVIAUA300</td>
-				<td>Önálló laboratórium</td>
-				<td>6</td>
-				<td>Gipsz Jakab</td>
-			</tr>
-			<tr>
-				<td>BMEVIAUA350</td>
-				<td>Informatikai technológiák laboratórium</td>
-				<td>2</td>
-				<td>Tóth László</td>
-			</tr>
-			<tr>
-				<td>BMEVIAUA360</td>
-				<td>Adatvezérelt alkalmazások fejlesztése</td>
-				<td>4</td>
-				<td>Szabó Zoltán</td>
-			</tr>
-			<tr>
-				<td>RXFVKBTA270</td>
-				<td>Bűbájtan</td>
-				<td>2</td>
-				<td>Perseus Piton</td>
-			</tr>
-			<tr>
-				<td>HRVBKRTA120</td>
-				<td>Történelem</td>
-				<td>5</td>
-				<td>ifj. Henry Jones</td>
-			</tr>
-		</table>
+	<div class="container">
+		<div class="table-responsive">
+			<table id="tab" class="table">
+				<tr>
+					<th>Tárgykód</th>
+					<th>Tárgynév</th>
+					<th>Kredit</th>
+					<th>Tárgyfelelős</th>
+				</tr>
+				<tr>
+					<td>BMEVIAUA300</td>
+					<td>Önálló laboratórium</td>
+					<td>6</td>
+					<td>Gipsz Jakab</td>
+				</tr>
+				<tr>
+					<td>BMEVIAUA350</td>
+					<td>Informatikai technológiák laboratórium</td>
+					<td>2</td>
+					<td>Tóth László</td>
+				</tr>
+				<tr>
+					<td>BMEVIAUA360</td>
+					<td>Adatvezérelt alkalmazások fejlesztése</td>
+					<td>4</td>
+					<td>Szabó Zoltán</td>
+				</tr>
+				<tr>
+					<td>RXFVKBTA270</td>
+					<td>Bűbájtan</td>
+					<td>2</td>
+					<td>Perseus Piton</td>
+				</tr>
+				<tr>
+					<td>HRVBKRTA120</td>
+					<td>Történelem</td>
+					<td>5</td>
+					<td>ifj. Henry Jones</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 
 </body>
