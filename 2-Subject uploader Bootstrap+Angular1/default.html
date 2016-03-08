@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tárgyfeltöltő felület</title>
+	<link rel="stylesheet" 
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+	</script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js">
+	</script>
+</head>
+
+<body>
+
+	<div class="container-fluid">
+		<div class="page-header">
+			<h1 class="text-center">Tárgyfeltöltő felület</h1>
+		</div>
+		<p class="text-center">Kérlek add meg az alábbi adatokat egy tárgyadról,
+		hogy felvehessük a táblázatba!</p>
+	</div>
+	
+	<div ng-app="myApp" ng-controller="myControl">
+	
+		<div class="container">
+			<form role="form">
+				<div class="form-group">
+					<label for="code">Tárgykód:</label>
+					<input class="form-control" type="text" ng-model="code">
+				</div>	
+				<div class="form-group">
+					<label for="name">Tárgynév:</label>
+					<input class="form-control" type="text" ng-model="name">
+				</div>
+				<div class="form-group">
+					<label for="credit">Kredit:</label>
+					<input class="form-control" type="number" ng-model="credit">
+				</div>
+				<div class="form-group">
+					<label for="teacher">Tárgyfelelős:</label>
+					<input class="form-control" type="text" ng-model="teacher"><br>
+				</div>
+			</form>
+			<button type="button" class="btn btn-default">Felveszem!</button><br><br>
+		</div>
+			
+		<div class="container">
+			<div class="table-responsive">
+				<table id="tab" class="table">
+					<tr>
+						<th>Tárgykód</th>
+						<th>Tárgynév</th>
+						<th>Kredit</th>
+						<th>Tárgyfelelős</th>
+					</tr>
+					<tr ng-repeat="x in subjects">
+						<td>{{ x.code }}</td>
+						<td>{{ x.name }}</td>
+						<td>{{ x.credit }}</td>
+						<td>{{ x.teacher }}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	
+	<script src="myControl.js"></script>
+
+</body>
+
+</html>
