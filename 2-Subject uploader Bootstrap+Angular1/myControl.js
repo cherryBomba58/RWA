@@ -7,4 +7,8 @@ app.controller("myControl", function($scope) {
 		{code:'RXFVKBTA270',name:'Bűbájtan',credit:'2',teacher:'Perseus Piton'},
 		{code:'HRVBKRTA120',name:'Történelem',credit:'5',teacher:'ifj. Henry Jones'}
 	];
+	$scope.addRow = function() {
+		$scope.subjects.push({code:$scope.code,name:$scope.name,
+			credit:$scope.credit,teacher:$scope.teacher});
+	}
 });
