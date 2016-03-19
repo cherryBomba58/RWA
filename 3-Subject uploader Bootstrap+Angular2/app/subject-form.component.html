@@ -1,0 +1,49 @@
+﻿<div class="container-fluid">
+	<div class="page-header">
+		<h1 class="text-center">Tárgyfeltöltő felület</h1>
+	</div>
+	<p class="text-center">Kérlek add meg az alábbi adatokat egy tárgyadról,
+	hogy felvehessük a táblázatba!</p>
+</div>
+	
+<div class="container">
+	<form role="form">
+		<div class="form-group">
+			<label for="code">Tárgykód:</label>
+			<input class="form-control" type="text">
+		</div>	
+		<div class="form-group">
+			<label for="name">Tárgynév:</label>
+			<input class="form-control" type="text">
+		</div>
+		<div class="form-group">
+			<label for="credit">Kredit:</label>
+			<input class="form-control" type="number">
+		</div>
+		<div class="form-group">
+			<label for="teacher">Tárgyfelelős:</label>
+			<input class="form-control" type="text"><br>
+		</div>
+	</form>
+	<button type="button" class="btn btn-info">Felveszem!
+	</button><br><br>
+</div>
+			
+<div class="container">
+	<div class="table-responsive">
+		<table class="table">
+			<tr>
+				<th>Tárgykód</th>
+				<th>Tárgynév</th>
+				<th>Kredit</th>
+				<th>Tárgyfelelős</th>
+			</tr>
+			<tr *ngFor="#x of subjects">
+				<td>{{ x.code }}</td>
+				<td>{{ x.name }}</td>
+				<td>{{ x.credit }}</td>
+				<td>{{ x.teacher }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
