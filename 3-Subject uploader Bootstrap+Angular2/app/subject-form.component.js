@@ -14,12 +14,8 @@
         	new app.Subject('HRVBKRTA120', 'Történelem', '5', 'ifj. Henry Jones')
         ];
       },
-      onSubmit: function() {
-        
-      },
-      // TODO: Remove this when we're done
-      diagnostic: function() {
-        return JSON.stringify(this.model);
-      },
+      addRow: function(code, name, credit, teacher) {
+        this.subjects.push(new app.Subject(code, name, credit, teacher));
+      }
     });
 })(window.app || (window.app = {}));
