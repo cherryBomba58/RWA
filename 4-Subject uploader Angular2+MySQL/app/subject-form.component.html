@@ -47,11 +47,12 @@
 				<td>{{ s.teacher }}</td>
 				<td>
 					<button type="button" (click)="modRow(code.value, name.value,
-					credit.value, teacher.value)" class="btn btn-info">Módosítás</button>
+					credit.value, teacher.value, s.code)" class="btn btn-info">
+					Módosítás</button>
 				</td>
 				<td>
-					<button type="button" (click)="delRow(code.value, name.value,
-					credit.value, teacher.value)" class="btn btn-info">Törlés</button>
+					<button type="button" (click)="delRow(s.code)"
+					class="btn btn-info">Törlés</button>
 				</td>
 			</tr>
 		</table>

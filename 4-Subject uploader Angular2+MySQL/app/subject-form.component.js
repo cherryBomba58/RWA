@@ -6,24 +6,17 @@
     })
     .Class({
       constructor: function() {
-        this.subjects = [
-        	new app.Subject('BMEVIAUA300', 'Önálló laboratórium', '6', 'Gipsz Jakab'), 
-        	new app.Subject('BMEVIAUA350', 'Informatikai technológiák', '2', 'Tóth László'), 
-        	new app.Subject('BMEVIAUA360', 'Adatvezérelt alkalmazások', '4', 'Szabó Zoltán'), 
-        	new app.Subject('RXFVKBTA270', 'Bűbájtan', '2', 'Perseus Piton'), 
-        	new app.Subject('HRVBKRTA120', 'Történelem', '5', 'ifj. Henry Jones')
-        	// here goes a select from
-        ];
+        this.subjects = [];
+        // here we select the data from table
       },
       addRow: function(code, name, credit, teacher) {
-        this.subjects.push(new app.Subject(code, name, credit, teacher));
-        // here goes an insert into
+        // here we insert row to table
       },
-      modRow: function(code, name, credit, teacher) {
-		// here goes an update set
+      modRow: function(code, name, credit, teacher, scode) {
+		// here we update a row in table
       },
-	  delRow: function(code, name, credit, teacher) {
-		// here goes a delete from
+	  delRow: function(code) {
+		// here we delete a row in table
       }
     });
 })(window.app || (window.app = {}));
