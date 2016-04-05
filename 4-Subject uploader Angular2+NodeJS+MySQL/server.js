@@ -3,31 +3,31 @@ var app = express();
 var mysql = require("mysql");
 var bodyParser = require("body-parser");
 
-	var con = mysql.createConnection({
-		host: "localhost",
-		user: "root",
-		password: "",
-		database: "svzvti"
-	});
+var con = mysql.createConnection({
+	host: "localhost",
+	user: "root",
+	password: "",
+	database: "svzvti"
+});
 
-	con.connect(function(err){
-		if(err){
-			console.log("Error connecting to DB");
-			return;
-		}
-		console.log("Connection established")
-	});
+con.connect(function(err){
+	if(err){
+		console.log("Error connecting to DB");
+		return;
+	}
+	console.log("Connection established")
+});
 
-	app.use(bodyParser.urlencoded({ extended: true }));
-	app.use(bodyParser.json());
-	var router = express.Router();
-	app.use('/api', router);
+app.use(express.static(__dirname));
+app.use(bodyParser.urlencoded({ extended: 'true' }));
+app.use(bodyParser.json());
 
-	app.listen(3000,function(){
-		console.log("I'm alive at 3000 port");
-	});
+app.listen(3000,function(){
+	console.log("It works at 3000 port");
+});
 	
-	var newSubject = new app.Subject(code, name, credit, teacher);
+	
+	/*var newSubject = new app.Subject(code, name, credit, teacher);
     con.query('INSERT INTO subjects SET ?', newSubject, function(err,result){
     	if(err) throw err;
     });
@@ -50,4 +50,4 @@ var bodyParser = require("body-parser");
 	});
 	
 	con.end(function(err) {
-	});
+	});*/
