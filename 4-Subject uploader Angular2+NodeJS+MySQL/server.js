@@ -22,32 +22,56 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: 'true' }));
 app.use(bodyParser.json());
 
+
+app.post('/api/subjects', function(req, res) {
+	var newSubject = {code: req.body.code, name: req.body.name,
+					  credit: req.body.credit, teacher: req.body.teacher};
+    con.query('INSERT INTO subjects SET ?', newSubject, function(err,result){
+    	if(err) {
+    		res.send(err);
+    	} else {
+    		res.json(result);
+    	}
+    });
+});    
+
+app.put('/api/subjects/:code', function(req, res) {
+	con.query('UPDATE subjects SET code = ?, name = ?, credit = ?, teacher = ? ' +
+	'WHERE code = ?', [req.body.code, req.body.name, req.body.credit, req.body.teacher,
+	req.body.scode], function(err,result){
+		if(err) {
+    		res.send(err);
+    	} else {
+    		res.json(result);
+    	}
+	});
+});
+	
+app.delete('/api/subjects/:code', function(req, res) {
+	con.query('DELETE FROM subjects WHERE code = ?',[req.body.code],
+	function(err,result) {
+		if(err) {
+    		res.send(err);
+    	} else {
+    		res.json(result);
+    	}
+	});
+});
+	
+app.get('/api/subjects', function(req, res) {
+	con.query('SELECT * FROM subjects',function(err,rows){
+		if(err) {
+    		res.send(err);
+    	} else {
+    		res.json(rows);
+    	}
+	});
+});
+
+
 app.listen(3000,function(){
 	console.log("It works at 3000 port");
 });
 	
-	
-	/*var newSubject = new app.Subject(code, name, credit, teacher);
-    con.query('INSERT INTO subjects SET ?', newSubject, function(err,result){
-    	if(err) throw err;
-    });
-	
-	con.query('UPDATE subjects SET code = ?, name = ?, credit = ?, teacher = ? ' +
-	'WHERE code = ?', [code, name, credit, teacher, scode], function(err, result){
-		if(err) throw err;
-	});
-	
-	con.query('DELETE FROM subjects WHERE code = ?',[code], function(err,result) {
-		if(err) throw err;
-	});
-	
-	con.query('SELECT * FROM subjects',function(err,rows){
-		if(err) throw err;
-		for(var i=0; i<rows.length; i++) {
-			this.subjects.push(new app.Subject(rows[i].code, rows[i].name,
-			rows[i].credit, rows[i].teacher));
-		};
-	});
-	
-	con.end(function(err) {
-	});*/
+con.end(function(err) {
+});

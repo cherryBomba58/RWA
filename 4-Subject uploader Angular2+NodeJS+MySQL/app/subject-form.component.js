@@ -8,6 +8,10 @@
       constructor: function() {
         this.subjects = [];
         // here we select the data from table
+        for(var i=0; i<rows.length; i++) {
+			this.subjects.push(new app.Subject(rows[i].code, rows[i].name,
+			rows[i].credit, rows[i].teacher));
+		};
       },
       addRow: function(code, name, credit, teacher) {
         // here we insert row to table
