@@ -26,13 +26,13 @@
 		</div>
 	</form>
 	<button type="button" (click)="addRow(code.value, name.value, credit.value,
-	teacher.value)" class="btn btn-info">Felveszem!</button><br><br>
+	teacher.value)" class="btn btn-success">Felveszem!</button><br><br>
 </div>
 			
 <div class="container">
 	<div class="table-responsive">
 		<table class="table">
-			<tr class="info">
+			<tr class="success">
 				<th>Tárgykód</th>
 				<th>Tárgynév</th>
 				<th>Kredit</th>
@@ -47,12 +47,12 @@
 				<td>{{ s.teacher }}</td>
 				<td>
 					<button type="button" (click)="modRow(code.value, name.value,
-					credit.value, teacher.value, s.code)" class="btn btn-info">
+					credit.value, teacher.value, s.code)" class="btn btn-success">
 					Módosítás</button>
 				</td>
 				<td>
 					<button type="button" (click)="delRow(s.code)"
-					class="btn btn-info">Törlés</button>
+					class="btn btn-success">Törlés</button>
 				</td>
 			</tr>
 		</table>

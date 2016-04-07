@@ -35,10 +35,11 @@ app.post('/api/subjects', function(req, res) {
     });
 });    
 
-app.put('/api/subjects/:code', function(req, res) {
-	con.query('UPDATE subjects SET code = ?, name = ?, credit = ?, teacher = ? ' +
-	'WHERE code = ?', [req.body.code, req.body.name, req.body.credit, req.body.teacher,
-	req.body.scode], function(err,result){
+app.put('/api/subjects/:scode', function(req, res) {
+	con.query('UPDATE subjects SET code = ?, name = ?, credit = ?, teacher = ? ' + 
+	'WHERE code = ?',
+	[req.body.code, req.body.name, req.body.credit, req.body.teacher, req.params.scode],
+	function(err,result){
 		if(err) {
     		res.send(err);
     	} else {
@@ -48,7 +49,7 @@ app.put('/api/subjects/:code', function(req, res) {
 });
 	
 app.delete('/api/subjects/:code', function(req, res) {
-	con.query('DELETE FROM subjects WHERE code = ?',[req.body.code],
+	con.query('DELETE FROM subjects WHERE code = ?', [req.params.code],
 	function(err,result) {
 		if(err) {
     		res.send(err);
@@ -59,13 +60,17 @@ app.delete('/api/subjects/:code', function(req, res) {
 });
 	
 app.get('/api/subjects', function(req, res) {
-	con.query('SELECT * FROM subjects',function(err,rows){
+	con.query('SELECT * FROM subjects', function(err,rows){
 		if(err) {
     		res.send(err);
     	} else {
     		res.json(rows);
     	}
 	});
+});
+
+app.get('*', function(req, res) {
+	res.sendFile('/./index.html');
 });
 
 
