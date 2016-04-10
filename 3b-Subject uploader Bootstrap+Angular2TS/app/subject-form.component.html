@@ -1,0 +1,60 @@
+﻿<div class="container-fluid">
+	<div class="page-header">
+		<h1 class="text-center">Tárgyfeltöltő felület</h1>
+	</div>
+	<p class="text-center">Kérlek add meg az alábbi adatokat egy tárgyadról,
+	hogy felvehessük a táblázatba!</p>
+</div>
+	
+<div class="container">
+	<form role="form">
+		<div class="form-group">
+			<label for="code">Tárgykód:</label>
+			<input #code class="form-control" type="text">
+		</div>	
+		<div class="form-group">
+			<label for="name">Tárgynév:</label>
+			<input #name class="form-control" type="text">
+		</div>
+		<div class="form-group">
+			<label for="credit">Kredit:</label>
+			<input #credit class="form-control" type="number">
+		</div>
+		<div class="form-group">
+			<label for="teacher">Tárgyfelelős:</label>
+			<input #teacher class="form-control" type="text"><br>
+		</div>
+	</form>
+	<button type="button" (click)="addRow(code.value, name.value, credit.value,
+	teacher.value)" class="btn btn-success">Felveszem!</button><br><br>
+</div>
+			
+<div class="container">
+	<div class="table-responsive">
+		<table class="table">
+			<tr class="success">
+				<th>Tárgykód</th>
+				<th>Tárgynév</th>
+				<th>Kredit</th>
+				<th>Tárgyfelelős</th>
+				<th>Módosítás</th>
+				<th>Törlés</th>
+			</tr>
+			<tr *ngFor="#s of subjects">
+				<td>{{ s.code }}</td>
+				<td>{{ s.name }}</td>
+				<td>{{ s.credit }}</td>
+				<td>{{ s.teacher }}</td>
+				<td>
+					<button type="button" (click)="modRow(code.value, name.value,
+					credit.value, teacher.value, s.code)" class="btn btn-success">
+					Módosítás</button>
+				</td>
+				<td>
+					<button type="button" (click)="delRow(s.code)"
+					class="btn btn-success">Törlés</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
