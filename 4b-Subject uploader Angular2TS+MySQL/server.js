@@ -69,11 +69,6 @@ app.get('/api/subjects', function(req, res) {
 	});
 });
 
-/*app.get('*', function(req, res) {
-	res.sendFile('/./index.html');
-});*/
-
-
 app.listen(3000,function(){
 	console.log("It works at 3000 port");
 });
