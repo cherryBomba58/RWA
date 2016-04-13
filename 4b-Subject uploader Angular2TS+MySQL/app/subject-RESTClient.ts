@@ -16,22 +16,24 @@ export class SubjectRESTClient extends RESTClient {
 
     protected requestInterceptor(req: Request) {
         // do sq with requests
+        
     }
 
-    protected requestInterceptor(req: Response) {
+    protected responseInterceptor(res: Observable<Subject>) {
         // do sg with responses
+        return res;
     }
 
     @GET("subjects")
-    public getSubjects( @Query("code") code?: string): Observable { return null; };
+    public getSubjects( @Query("code") code?: string): Observable<Subject[]> { return null; };
 
     @POST("subjects")
-    public postSubject( @Body subject: Subject): Observable { return null; };
+    public postSubject( @Body subject: Subject): Observable<Subject> { return null; };
 
     @PUT("subjects/{code}")
-    public putSubject( @Path("code") code: string, @Body subject: Subject): Observable { return null; };
+    public putSubject( @Path("code") code: string, @Body subject: Subject): Observable<Subject> { return null; };
 
     @DELETE("subjects/{code}")
-    public deleteSubject( @Path("code") code: string): Observable { return null; };
+    public deleteSubject( @Path("code") code: string): Observable<Subject> { return null; };
 
 }

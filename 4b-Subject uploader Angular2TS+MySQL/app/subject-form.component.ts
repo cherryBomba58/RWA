@@ -1,5 +1,5 @@
 import {Component, OnInit} 	from 'angular2/core';
-import {Subject} 		from './subject';
+import {Subject} 			from './subject';
 import {SubjectRESTClient} 	from './subject-RESTClient';
 
 @Component({
@@ -10,7 +10,7 @@ import {SubjectRESTClient} 	from './subject-RESTClient';
 
 export class SubjectFormComponent implements OnInit {
   
-  constructor(subjectRESTClient: SubjectRESTClient) {
+  constructor(private subjectRESTClient: SubjectRESTClient) {
 
   }
 
@@ -28,19 +28,18 @@ export class SubjectFormComponent implements OnInit {
 
   addRow(code: string, name: string, credit: number, teacher: string) {
     // here we insert row to table
-    sub = new Subject(code, name, credit, teacher);
+    var sub = new Subject(code, name, credit, teacher);
     this.subjectRESTClient.postSubject(sub)
         		  .subscribe(subject => this.subjects.push(subject));
   }
   modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
     // here we update a row in table
-    sub = new Subject(code, name, credit, teacher);
+    var sub = new Subject(code, name, credit, teacher);
     this.subjectRESTClient.putSubject(scode, sub)
         		  .subscribe(subject => {
-				i: number;
-				for(i = 0; i < subjects.length; i++) {
-					if(subjects.at(i).at(0) == scode)
-						subjects.removeAt(i);
+				for(var i = 0; i < this.subjects.length; i++) {
+					if(this.subjects[i][0] == scode)
+						this.subjects.splice(i, 1);
 				}
 				this.subjects.push(subject);
 			  });
@@ -49,10 +48,9 @@ export class SubjectFormComponent implements OnInit {
     // here we delete a row in table
     this.subjectRESTClient.deleteSubject(scode)
         		  .subscribe(subject => {
-				i: number;
-				for(i = 0; i < subjects.length; i++) {
-					if(subjects.at(i).at(0) == subject.code)
-						subjects.removeAt(i);
+				for(var i = 0; i < this.subjects.length; i++) {
+					if(this.subjects[i][0] == subject.code)
+						this.subjects.splice(i, 1);
 				}
 			  });
   }
