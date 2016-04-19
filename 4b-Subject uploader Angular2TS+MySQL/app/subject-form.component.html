@@ -37,6 +37,7 @@
 				<th>Tárgynév</th>
 				<th>Kredit</th>
 				<th>Tárgyfelelős</th>
+				<th>Mezőkbe!</th>
 				<th>Módosítás</th>
 				<th>Törlés</th>
 			</tr>
@@ -46,13 +47,20 @@
 				<td>{{ s.credit }}</td>
 				<td>{{ s.teacher }}</td>
 				<td>
+					<button type="button" (click)="code.value = s.code;
+					name.value = s.name; credit.value = s.credit;
+					teacher.value = s.teacher;" class="btn btn-success">Mezőkbe!
+					</button>
+				</td>
+				<td>
 					<button type="button" (click)="modRow(code.value, name.value,
-					credit.value, teacher.value, s.code)" class="btn btn-success">
-					Módosítás</button>
+					credit.value, teacher.value, s.code)" class="btn btn-success">Módosítás
+					</button>
 				</td>
 				<td>
 					<button type="button" (click)="delRow(s.code)"
-					class="btn btn-success">Törlés</button>
+					class="btn btn-success">Törlés
+					</button>
 				</td>
 			</tr>
 		</table>
