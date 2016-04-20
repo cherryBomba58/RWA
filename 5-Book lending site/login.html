@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +9,7 @@
     <meta name="description" content="Könyvkölcsönzési oldal">
     <meta name="author" content="Répássy Adrienn">
 
-    <title>Könyvkölcsönzés</title>
+    <title>Bejelentkezés</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -71,14 +71,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+    <header class="intro-header" style="background-image: url('img/contact-bg.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Könyvkölcsönzés</h1>
+                    <div class="page-heading">
+                        <h1>Bejelentkezés</h1>
                         <hr class="small">
-                        <span class="subheading">Készítette: cherryBomba58</span>
+                        <span class="subheading">Jelentkezz be a folytatáshoz.</span>
                     </div>
                 </div>
             </div>
@@ -89,13 +89,33 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Üdvözöllek weboldalamon!</p>
-                <p>Te is úgy gondolod, hogy a drága könyvesboltok és a webshopok helyett inkább csatlakoznál egy olyan közösséghez, melynek tagjai egymásnak kölcsönöznek könyveket kedvező áron, vagy akár ingyen?</p>
-                <p>Szeretnél megválni fölösleges könyveidtől? És szeretnél a kölcsönadásaidból profitálni is? Mert a hónap legaktívabb kölcsönadója értékes jutalomban részesül!</p>
-                <p>Ha igen, regisztrálj <a href="login.html">itt</a>.</p>
-                <p>A közösség tagjainak legújabb ajánlatai <a href="offers.html">itt</a> találhatók.</p>
-                <p>Saját kölcsönzéseidet és kölcsönadásaidat, valamint az értük járó pontszámaidat megtekintheted <a href="lendings.html">itt</a>.</p>
-                <p>Ha hibát észleltél az oldalon, akkor jelezd nekem a GitHub repository-mnál az Issues oldalon. Ehhez megtalálod a linket alul.</p>
+                <p>TODO: Bejelentkezési form!</p>
+                <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" class="btn btn-default">Send</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
