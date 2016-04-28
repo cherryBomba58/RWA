@@ -1,0 +1,6 @@
+titkosítjuk a usert, jelszót (md5), és egyedi tokent generálunk mindenkinek (Node.js-sel)
+amikor meglátogat egy weboldalt, akkor azonosítja magát a tokennel, hogy érvényes-e még az.
+A token a bejelentkezéstõl egy óráig érvényes csak. (GUID: Globally Unique ID)
+Ha érvényes, akkor ez a felhasz. meglátogatta ezt az oldalt, az egyedi tokenjével, bejelentkezve.
+Ha nem érvényes már, akkor be kell jelentkeznie ismét (át is tudjuk irányítani a bejel. oldalra)
+TODO: regisztrációs oldal. User tábla: usernév, jelszóhash, emailcím, lakhely, GUID token

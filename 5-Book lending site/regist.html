@@ -9,7 +9,7 @@
     <meta name="description" content="Könyvkölcsönzési oldal">
     <meta name="author" content="Répássy Adrienn">
 
-    <title>Bejelentkezés</title>
+    <title>Regisztráció</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -79,9 +79,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="page-heading">
-                        <h1>Bejelentkezés</h1>
+                        <h1>Regisztráció</h1>
                         <hr class="small">
-                        <span class="subheading">Jelentkezz be a folytatáshoz.</span>
+                        <span class="subheading">Itt hozhatsz létre új profilt.</span>
                     </div>
                 </div>
             </div>
@@ -92,13 +92,27 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>TODO: Bejelentkezési form! Felhasználónév, jelszó, és szerintem submit!</p>
-                <!-- Login Form -->
-                <form name="login" id="loginForm" novalidate>
+                <p>TODO: Regisztrációs form! Felhasználónév, jelszó, jelszó még egyszer, email, város/falu, és szerintem submit!</p>
+                <!-- Registration Form -->
+                <form name="regist" id="registForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Felhasználónév</label>
                             <input type="text" class="form-control" placeholder="Username" id="username" required data-validation-required-message="Kérlek add meg a felhasználónevedet.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Email cím</label>
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Kérlek add meg az email címedet.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Település</label>
+                            <input type="text" class="form-control" placeholder="City/Town/Village" id="city" required data-validation-required-message="Kérlek add meg a lakhelyedet.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -109,11 +123,18 @@
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Jelszó még egyszer</label>
+                            <input type="password" class="form-control" placeholder="Password2" id="password2" required data-validation-required-message="Kérlek add meg a jelszavadat még egyszer.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
                     <br>
                     <div id="success"></div>
                     <div class="row">
                         <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-danger">Bejelentkezés</button>
+                            <button type="submit" class="btn btn-warning">Regisztráció</button>
                         </div>
                     </div>
                 </form>
