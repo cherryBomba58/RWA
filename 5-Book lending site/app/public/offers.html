@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,13 +9,14 @@
     <meta name="description" content="Könyvkölcsönzési oldal">
     <meta name="author" content="Répássy Adrienn">
 
-    <title>Könyvkölcsönzés</title>
+    <title>Ajánlatok</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -74,14 +75,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/rose.jpg')">
+    <header class="intro-header" style="background-image: url('img/autumn.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Könyvkölcsönzés</h1>
+                    <div class="page-heading">
+                        <h1>Ajánlatok</h1>
                         <hr class="small">
-                        <span class="subheading">Készítette: cherryBomba58</span>
+                        <span class="subheading">Válassz az alábbi ajánlatok közül.</span>
                     </div>
                 </div>
             </div>
@@ -90,18 +91,54 @@
 
     <!-- Main Content -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Üdvözöllek weboldalamon!</p>
-                <p>Te is úgy gondolod, hogy a drága könyvesboltok és webshopok helyett inkább csatlakoznál egy olyan közösséghez, melynek tagjai szívesen kölcsönöznek egymásnak könyveket kedvező áron, vagy akár ingyen?</p>
-                <p>Szeretnél megválni fölösleges könyveidtől? És szeretnél a kölcsönadásaidból profitálni is? Mert a hónap legaktívabb kölcsönadója értékes jutalomban részesül!</p>
-                <p>Ha bármelyik kérdésre igent válaszoltál, kérlek regisztrálj <a href="regist.html">itt</a>.</p>
-                <p>Vagy ha már tagja vagy remek közösségünknek, akkor jelentkezz be <a href="login.html">ezen az oldalon</a>.</p>
-                <p>A közösség tagjainak legújabb ajánlataiért látogass <a href="offers.html">ide</a>.</p>
-                <p>Saját kölcsönzéseidet és kölcsönadásaidat, valamint az értük járó pontszámaidat <a href="mydata.html">itt</a> tekintheted meg.</p>
-                <p>Ha hibát észleltél az oldalon, akkor jelezd nekem a GitHub repository-mnál az Issues oldalon. Ehhez megtalálod a linket alul.</p>
-            </div>
-        </div>
+    	<div class="table-responsive">
+	    	<table class="table">
+	        	<tr>
+	            	<th>Kölcsönadó</th>
+	            	<th>Kölcsönző</th>
+	            	<th>Szerző</th>
+	            	<th>Cím</th>
+	            	<th>Év</th>
+	            	<th>Kiadó</th>
+	            	<th>Kiadási év</th>
+	            	<th>ISBN</th>
+	            	<th>Kölcsönöz</th>
+	            </tr>
+	            <tr>
+	            	<td><a href="mydata.html">masvalaki</a></td>
+	            	<td><a href="mydata.html">valaki</a></td>
+	            	<td>George Orwell</td>
+	           		<td>1984</td>
+	           		<td>1948</td>
+	           		<td>Európa Könyvkiadó</td>
+	           		<td>1989</td>
+	           		<td>1234</td>
+	           		<td><button type="submit" class="btn btn-default" disabled>Kölcsönöz</button></td>
+	           	</tr>
+	           	<tr>
+	           		<td><a href="mydata.html">valaki</a></td>
+	           		<td><a href="mydata.html">masvalaki</a></td>
+	           		<td>Petőfi Sándor</td>
+	           		<td>Összes költeményei</td>
+	           		<td>1986</td>
+	           		<td>Szépirodalmi Könyvkiadó</td>
+	           		<td>1986</td>
+	           		<td>2345</td>
+	           		<td><button type="submit" class="btn btn-default" disabled>Kölcsönöz</button></td>
+	        	</tr>
+	           	<tr>
+	           		<td><a href="mydata.html">bonbon</a></td>
+	           		<td>Senki</td>
+	           		<td>Mikszáth Kálmán</td>
+	           		<td>Beszterce ostroma</td>
+	           		<td>1896</td>
+	           		<td>Szépirodalmi Könyvkiadó</td>
+	           		<td>1988</td>
+	           		<td>3456</td>
+	           		<td><button type="submit" class="btn btn-default">Kölcsönöz</button></td>
+	           	</tr>
+			</table>
+		</div>
     </div>
 
     <hr>
@@ -113,7 +150,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="http://1drv.ms/1QjWx5Y">
+                            <a href="https://onedrive.live.com/redir?resid=8D4A1A5E62695A25!524&authkey=!APi38CwJ_4LrdIo&ithint=file%2cdocx">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-windows fa-stack-1x fa-inverse"></i>

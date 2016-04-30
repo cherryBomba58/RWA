@@ -9,13 +9,14 @@
     <meta name="description" content="Könyvkölcsönzési oldal">
     <meta name="author" content="Répássy Adrienn">
 
-    <title>Regisztráció</title>
+    <title>Adataim</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -74,14 +75,14 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/openbook.jpg')">
+    <header class="intro-header" style="background-image: url('img/colors.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>Regisztráció</h1>
+                    <div class="site-heading">
+                        <h1>Adataim</h1>
                         <hr class="small">
-                        <span class="subheading">Itt hozhatsz létre új profilt.</span>
+                        <span class="subheading">Itt tekintheted meg az adataidat.</span>
                     </div>
                 </div>
             </div>
@@ -90,42 +91,132 @@
 
     <!-- Main Content -->
     <div class="container">
+    	<div class="row">
+        	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            	<p><span class="section-title">Személyes adatok</span></p>
+            	<div class="table-responsive">
+	            	<table class="table">
+	            		<tr>
+	            			<th>Felhasználónév</th>
+	            			<td>valaki</td>
+	            		</tr>
+	            		<tr>
+	            			<th>Email cím</th>
+	            			<td>valaki@valaki.hu</td>
+	            		</tr>
+	            		<tr>
+	            			<th>Település</th>
+	            			<td>valahol</td>
+	            		</tr>
+	            		<tr>
+	            			<th>Pontszám</th>
+	            			<td>5</td>
+	            		</tr>
+	            	</table>
+	            </div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">           
+            	<p><span class="section-title">Kölcsönzések</span></p>
+            	<div class="table-responsive">
+	            	<table class="table">
+	            		<tr>
+	            			<th>Kölcsönadó</th>
+	            			<th>Szerző</th>
+	            			<th>Cím</th>
+	            			<th>Év</th>
+	            			<th>Kiadó</th>
+	            			<th>Kiadási év</th>
+	            			<th>ISBN</th>
+	            		</tr>
+	            		<tr>
+	            			<td><a href="mydata.html">masvalaki</a></td>
+	            			<td>George Orwell</td>
+	            			<td>1984</td>
+	           				<td>1948</td>
+	           				<td>Európa Könyvkiadó</td>
+	           				<td>1989</td>
+	           				<td>1234</td>
+	           			</tr>
+	           		</table>
+	           	</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">           	
+            	<p><span class="section-title">Kölcsönadások</span></p>
+	           	<div class="table-responsive">
+	           		<table class="table">
+	           			<tr>
+	           				<th>Kölcsönző</th>
+	           				<th>Szerző</th>
+	           				<th>Cím</th>
+	           				<th>Év</th>
+	           				<th>Kiadó</th>
+	           				<th>Kiadási év</th>
+	           				<th>ISBN</th>
+	           			</tr>
+	           			<tr>
+	           				<td><a href="mydata.html">masvalaki</a></td>
+	           				<td>Petőfi Sándor</td>
+	           				<td>Összes költeményei</td>
+	           				<td>1986</td>
+	           				<td>Szépirodalmi Könyvkiadó</td>
+	           				<td>1986</td>
+	           				<td>2345</td>
+	           			</tr>
+	           		</table>
+	           	</div>
+            </div>
+        </div>
+        <br>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <!-- Registration Form -->
-                <form name="regist" id="registForm" novalidate>
+            	<p><span class="section-title">Új könyv-kölcsönadási ajánlat felvétele</span></p>
+                <!-- Form to add a book to the list -->
+                <form name="addBook" id="addBookForm" novalidate>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Felhasználónév</label>
-                            <input type="text" class="form-control" placeholder="Felhasználónév" id="username" required data-validation-required-message="Kérlek add meg a felhasználónevedet.">
+                            <label>Szerző</label>
+                            <input type="text" class="form-control" placeholder="Szerző" id="writer" required data-validation-required-message="Kérlek add meg a szerzőt.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Email cím</label>
-                            <input type="email" class="form-control" placeholder="Email cím" id="email" required data-validation-required-message="Kérlek add meg az email címedet.">
+                            <label>Cím</label>
+                            <input type="text" class="form-control" placeholder="Cím" id="title" required data-validation-required-message="Kérlek add meg a címet.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Település</label>
-                            <input type="text" class="form-control" placeholder="Település" id="city" required data-validation-required-message="Kérlek add meg a lakhelyedet.">
+                            <label>Év</label>
+                            <input type="number" class="form-control" placeholder="Év" id="year" required data-validation-required-message="Kérlek add meg az évet.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Jelszó</label>
-                            <input type="password" class="form-control" placeholder="Jelszó" id="password" required data-validation-required-message="Kérlek add meg a jelszavadat.">
+                            <label>Kiadó</label>
+                            <input type="text" class="form-control" placeholder="Kiadó" id="publisher" required data-validation-required-message="Kérlek add meg a kiadót.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Jelszó még egyszer</label>
-                            <input type="password" class="form-control" placeholder="Jelszó még egyszer" id="password2" required data-validation-required-message="Kérlek add meg a jelszavadat még egyszer.">
+                            <label>Kiadási év</label>
+                            <input type="number" class="form-control" placeholder="Kiadási év" id="p_year" required data-validation-required-message="Kérlek add meg a kiadás évét.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>ISBN</label>
+                            <input type="text" class="form-control" placeholder="ISBN" id="isbn" required data-validation-required-message="Kérlek add meg a könyv ISBN azonosítóját.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
@@ -133,7 +224,7 @@
                     <div id="success"></div>
                     <div class="row">
                         <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Regisztráció</button>
+                            <button type="submit" class="btn btn-default">Felvesz</button>
                         </div>
                     </div>
                 </form>
@@ -150,7 +241,7 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="http://1drv.ms/1QjWx5Y">
+                            <a href="https://onedrive.live.com/redir?resid=8D4A1A5E62695A25!524&authkey=!APi38CwJ_4LrdIo&ithint=file%2cdocx">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-windows fa-stack-1x fa-inverse"></i>
