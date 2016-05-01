@@ -95,22 +95,22 @@
         	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             	<p><span class="section-title">Személyes adatok</span></p>
             	<div class="table-responsive">
-	            	<table class="table">
+	            	<table class="table" *ngFor="let my of mydata">
 	            		<tr>
 	            			<th>Felhasználónév</th>
-	            			<td>valaki</td>
+	            			<td>{{my.username}}</td>
 	            		</tr>
 	            		<tr>
 	            			<th>Email cím</th>
-	            			<td>valaki@valaki.hu</td>
+	            			<td>{{my.email}}</td>
 	            		</tr>
 	            		<tr>
 	            			<th>Település</th>
-	            			<td>valahol</td>
+	            			<td>{{my.place}}</td>
 	            		</tr>
 	            		<tr>
 	            			<th>Pontszám</th>
-	            			<td>5</td>
+	            			<td>{{my.point}}</td>
 	            		</tr>
 	            	</table>
 	            </div>
@@ -131,14 +131,14 @@
 	            			<th>Kiadási év</th>
 	            			<th>ISBN</th>
 	            		</tr>
-	            		<tr>
-	            			<td><a href="mydata.html">masvalaki</a></td>
-	            			<td>George Orwell</td>
-	            			<td>1984</td>
-	           				<td>1948</td>
-	           				<td>Európa Könyvkiadó</td>
-	           				<td>1989</td>
-	           				<td>1234</td>
+	            		<tr *ngFor="let b of borrowings">
+	            			<td><a href="mydata.html">{{b.lender}}</a></td>
+	            			<td>{{b.writer}}</td>
+	            			<td>{{b.title}}</td>
+	           				<td>{{b.year}}</td>
+	           				<td>{{b.publisher}}</td>
+	           				<td>{{b.p_year}}</td>
+	           				<td>{{b.ISBN}}</td>
 	           			</tr>
 	           		</table>
 	           	</div>
@@ -159,14 +159,14 @@
 	           				<th>Kiadási év</th>
 	           				<th>ISBN</th>
 	           			</tr>
-	           			<tr>
-	           				<td><a href="mydata.html">masvalaki</a></td>
-	           				<td>Petőfi Sándor</td>
-	           				<td>Összes költeményei</td>
-	           				<td>1986</td>
-	           				<td>Szépirodalmi Könyvkiadó</td>
-	           				<td>1986</td>
-	           				<td>2345</td>
+	           			<tr *ngFor="let l of lendings">
+	           				<td><a href="mydata.html">{{l.borrower}}</a></td>
+	           				<td>{{l.writer}}</td>
+	           				<td>{{l.title}}</td>
+	           				<td>{{l.year}}</td>
+	           				<td>{{l.publisher}}</td>
+	           				<td>{{l.p_year}}</td>
+	           				<td>{{l.ISBN}}</td>
 	           			</tr>
 	           		</table>
 	           	</div>
@@ -181,53 +181,53 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Szerző</label>
-                            <input type="text" class="form-control" placeholder="Szerző" id="writer" required data-validation-required-message="Kérlek add meg a szerzőt.">
+                            <input #writer type="text" class="form-control" placeholder="Szerző" id="writer" required data-validation-required-message="Kérlek add meg a szerzőt.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Cím</label>
-                            <input type="text" class="form-control" placeholder="Cím" id="title" required data-validation-required-message="Kérlek add meg a címet.">
+                            <input #title type="text" class="form-control" placeholder="Cím" id="title" required data-validation-required-message="Kérlek add meg a címet.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Év</label>
-                            <input type="number" class="form-control" placeholder="Év" id="year" required data-validation-required-message="Kérlek add meg az évet.">
+                            <input #year type="number" class="form-control" placeholder="Év" id="year" required data-validation-required-message="Kérlek add meg az évet.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Kiadó</label>
-                            <input type="text" class="form-control" placeholder="Kiadó" id="publisher" required data-validation-required-message="Kérlek add meg a kiadót.">
+                            <input #publisher type="text" class="form-control" placeholder="Kiadó" id="publisher" required data-validation-required-message="Kérlek add meg a kiadót.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>Kiadási év</label>
-                            <input type="number" class="form-control" placeholder="Kiadási év" id="p_year" required data-validation-required-message="Kérlek add meg a kiadás évét.">
+                            <input #p_year type="number" class="form-control" placeholder="Kiadási év" id="p_year" required data-validation-required-message="Kérlek add meg a kiadás évét.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>ISBN</label>
-                            <input type="text" class="form-control" placeholder="ISBN" id="isbn" required data-validation-required-message="Kérlek add meg a könyv ISBN azonosítóját.">
+                            <input #isbn type="text" class="form-control" placeholder="ISBN" id="isbn" required data-validation-required-message="Kérlek add meg a könyv ISBN azonosítóját.">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <br>
                     <div id="success"></div>
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <button type="submit" class="btn btn-default">Felvesz</button>
-                        </div>
-                    </div>
                 </form>
+                <div class="row">
+                	<div class="form-group col-xs-12">
+                    	<button type="button" (click)="addRow(writer.value, title.value, year.value, publisher.value, p_year.value, isbn.value)" class="btn btn-default">Felvesz</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
