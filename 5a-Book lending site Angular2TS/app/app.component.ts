@@ -11,7 +11,7 @@ import {OffersComponent} 	from './offers.component';
 
 @Component({
     selector: 'my-app',
-    template: '<offers></offers>',
+    template: '<mydata></mydata>',
     directives: [HomeComponent, MyDataComponent, OffersComponent],
     /*providers: [HTTP_PROVIDERS, SubjectService]*/
 })

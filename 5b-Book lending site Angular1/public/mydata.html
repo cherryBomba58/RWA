@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Könyvkölcsönzési oldal">
+    <meta name="author" content="Répássy Adrienn">
+
+    <title>Adataim</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Könyvkölcsönzés</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="index.html">Főoldal</a>
+                    </li>
+                    <li>
+                        <a href="offers.html">Ajánlatok</a>
+                    </li>
+                    <li>
+                        <a href="mydata.html">Adataim</a>
+                    </li>
+                    <li>
+                        <a href="regist.html">Regisztráció</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Bejelentkezés</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/colors.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Adataim</h1>
+                        <hr class="small">
+                        <span class="subheading">Itt tekintheted meg az adataidat.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div ng-app="myDataApp" ng-controller="myDataControl">
+	    <div class="container">
+	    	<div class="row">
+	        	<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	            	<p><span class="section-title">Személyes adatok</span></p>
+	            	<div class="table-responsive">
+		            	<table class="table" ng-repeat="my in mydata">
+		            		<tr>
+		            			<th>Felhasználónév</th>
+		            			<td>{{my.username}}</td>
+		            		</tr>
+		            		<tr>
+		            			<th>Email cím</th>
+		            			<td>{{my.email}}</td>
+		            		</tr>
+		            		<tr>
+		            			<th>Település</th>
+		            			<td>{{my.place}}</td>
+		            		</tr>
+		            		<tr>
+		            			<th>Pontszám</th>
+		            			<td>{{my.point}}</td>
+		            		</tr>
+		            	</table>
+		            </div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">           
+	            	<p><span class="section-title">Kölcsönzések</span></p>
+	            	<div class="table-responsive">
+		            	<table class="table">
+		            		<tr>
+		            			<th>Kölcsönadó</th>
+		            			<th>Szerző</th>
+		            			<th>Cím</th>
+		            			<th>Év</th>
+		            			<th>Kiadó</th>
+		            			<th>Kiadási év</th>
+		            			<th>ISBN</th>
+		            		</tr>
+		            		<tr ng-repeat="b in borrowings">
+		            			<td><a href="mydata.html">{{b.lender}}</a></td>
+		            			<td>{{b.writer}}</td>
+		            			<td>{{b.title}}</td>
+		           				<td>{{b.year}}</td>
+		           				<td>{{b.publisher}}</td>
+		           				<td>{{b.p_year}}</td>
+		           				<td>{{b.isbn}}</td>
+		           			</tr>
+		           		</table>
+		           	</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">           	
+	            	<p><span class="section-title">Kölcsönadások</span></p>
+		           	<div class="table-responsive">
+		           		<table class="table">
+		           			<tr>
+		           				<th>Kölcsönző</th>
+		           				<th>Szerző</th>
+		           				<th>Cím</th>
+		           				<th>Év</th>
+		           				<th>Kiadó</th>
+		           				<th>Kiadási év</th>
+		           				<th>ISBN</th>
+		           			</tr>
+		           			<tr ng-repeat="l in lendings">
+		           				<td><a href="mydata.html">{{l.borrower}}</a></td>
+		           				<td>{{l.writer}}</td>
+		           				<td>{{l.title}}</td>
+		           				<td>{{l.year}}</td>
+		           				<td>{{l.publisher}}</td>
+		           				<td>{{l.p_year}}</td>
+		           				<td>{{l.isbn}}</td>
+		           			</tr>
+		           		</table>
+		           	</div>
+	            </div>
+	        </div>
+	        <br>
+	        <div class="row">
+	            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	            	<p><span class="section-title">Új könyv-kölcsönadási ajánlat felvétele</span></p>
+	                <!-- Form to add a book to the list -->
+	                <form name="addBook" id="addBookForm" novalidate>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>Szerző</label>
+	                            <input ng-model="writer" type="text" class="form-control" placeholder="Szerző" id="writer" required data-validation-required-message="Kérlek add meg a szerzőt.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>Cím</label>
+	                            <input ng-model="title" type="text" class="form-control" placeholder="Cím" id="title" required data-validation-required-message="Kérlek add meg a címet.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>Év</label>
+	                            <input ng-model="year" type="number" class="form-control" placeholder="Év" id="year" required data-validation-required-message="Kérlek add meg az évet.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>Kiadó</label>
+	                            <input ng-model="publisher" type="text" class="form-control" placeholder="Kiadó" id="publisher" required data-validation-required-message="Kérlek add meg a kiadót.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>Kiadási év</label>
+	                            <input ng-model="p_year" type="number" class="form-control" placeholder="Kiadási év" id="p_year" required data-validation-required-message="Kérlek add meg a kiadás évét.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <div class="row control-group">
+	                        <div class="form-group col-xs-12 floating-label-form-group controls">
+	                            <label>ISBN</label>
+	                            <input ng-model="isbn" type="text" class="form-control" placeholder="ISBN" id="isbn" required data-validation-required-message="Kérlek add meg a könyv ISBN azonosítóját.">
+	                            <p class="help-block text-danger"></p>
+	                        </div>
+	                    </div>
+	                    <br>
+	                    <div id="success"></div>
+	                </form>
+	                <div class="row">
+	                	<div class="form-group col-xs-12">
+	                    	<button type="button" ng-click="addLending()" class="btn btn-default">Felvesz</button>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://onedrive.live.com/redir?resid=8D4A1A5E62695A25!524&authkey=!APi38CwJ_4LrdIo&ithint=file%2cdocx">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-windows fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/cherryBomba58/RWA">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; cherryBomba58 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- AngularJS Core JavaScript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/clean-blog.min.js"></script>
+    <script src="app/myDataControl.js"></script>
+
+</body>
+
+</html>
