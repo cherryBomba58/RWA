@@ -1,9 +1,9 @@
-import {Component, OnInit} 	from 'angular2/core';
+﻿import {Component, OnInit} 	from 'angular2/core';
 /*import {SubjectService} 	from './subject.service';*/
 
-import {MyData} 			from './mydata';
-import {Borrowing} 			from './borrowing';
-import {Lending} 			from './lending';
+import {MyData} 		from './mydata';
+import {Borrowing} 		from './borrowing';
+import {Lending} 		from './lending';
 
 @Component({
   selector: 'mydata',

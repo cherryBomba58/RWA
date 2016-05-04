@@ -1,20 +1,17 @@
 import {Component, OnInit} 	from 'angular2/core';
-/*import {SubjectService} 	from './subject.service';*/
-
-import {Offering}		from './offering';
+/*import {Book} 			from './book';
+import {User} 			from './user';
+import {Offer} 			from './offer';
+import {SubjectService} 	from './subject.service';*/
 
 @Component({
-  selector: 'offers',
+  selector: 'login',
   /*viewProviders: [SubjectService],*/
-  templateUrl: 'app/public/offers.html'
+  templateUrl: 'app/public/login.html'
 })
 
-export class OffersComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
-  offerings = [new Offering(1, 'masvalaki', 'valaki', 'George Orwell', '1984', 1948, 'Európa Könyvkiadó', 1989, '1234'),
-	       new Offering(2, 'valaki', 'masvalaki', 'Petõfi Sándor', 'Összes költeményei', 1986, 'Szépirodalmi Könyvkiadó', 1986, '2345'),
-	       new Offering(3, 'bonbon', 'Senki', 'Mikszáth Kálmán', 'Beszterce ostroma', 1896, 'Szépirodalmi Könyvkiadó', 1988, '3456')];
-  
   /*constructor(private subjectService: SubjectService) {
 
   }*/
@@ -29,7 +26,7 @@ export class OffersComponent implements OnInit {
     			  .subscribe(subjects => this.subjects = subjects);*/
   }
   addRow(lender: string, borrower: string, writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
-    this.offerings.push(new Offering(4, lender, borrower, writer, title, year, publisher, p_year, ISBN));
+    
   }
   /*modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
     // here we update a row in table
