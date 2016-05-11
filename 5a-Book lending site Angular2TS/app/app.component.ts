@@ -6,11 +6,12 @@ import {MyDataComponent} 	from './mydata.component';
 import {OffersComponent} 	from './offers.component';
 import {LoginComponent} 	from './login.component';
 import {RegistComponent} 	from './regist.component';
+import {User} 			from './user';
 /*import {SubjectService}	from './subject.service';*/
 
 @Component({
     selector: 'my-app',
-    template: '<regist></regist>',
+    template: '<mydata></mydata>',
     directives: [IndexComponent, MyDataComponent, OffersComponent, LoginComponent, RegistComponent],
     /*providers: [HTTP_PROVIDERS, SubjectService]*/
 })

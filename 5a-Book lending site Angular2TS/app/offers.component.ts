@@ -1,4 +1,4 @@
-import {Component, OnInit} 	from 'angular2/core';
+ï»¿import {Component, OnInit} 	from 'angular2/core';
 /*import {SubjectService} 	from './subject.service';*/
 
 import {Offering}		from './offering';
@@ -9,11 +9,12 @@ import {Offering}		from './offering';
   templateUrl: 'app/public/offers.html'
 })
 
+// gettelni Ã©s putolni fog
 export class OffersComponent implements OnInit {
 
-  offerings = [new Offering(1, 'masvalaki', 'valaki', 'George Orwell', '1984', 1948, 'Európa Könyvkiadó', 1989, '1234'),
-	       new Offering(2, 'valaki', 'masvalaki', 'Petõfi Sándor', 'Összes költeményei', 1986, 'Szépirodalmi Könyvkiadó', 1986, '2345'),
-	       new Offering(3, 'bonbon', 'Senki', 'Mikszáth Kálmán', 'Beszterce ostroma', 1896, 'Szépirodalmi Könyvkiadó', 1988, '3456')];
+  offerings = [new Offering(1, 'masvalaki', 'valaki', 'George Orwell', '1984', 1948, 'EurÃ³pa KÃ¶nyvkiadÃ³', 1989, '1234'),
+	       new Offering(2, 'valaki', 'masvalaki', 'PetÅ‘fi SÃ¡ndor', 'Ã–sszes kÃ¶ltemÃ©nyei', 1986, 'SzÃ©pirodalmi KÃ¶nyvkiadÃ³', 1986, '2345'),
+	       new Offering(3, 'bonbon', 'Senki', 'MikszÃ¡th KÃ¡lmÃ¡n', 'Beszterce ostroma', 1896, 'SzÃ©pirodalmi KÃ¶nyvkiadÃ³', 1988, '3456')];
   
   /*constructor(private subjectService: SubjectService) {
 
@@ -28,18 +29,19 @@ export class OffersComponent implements OnInit {
     this.subjectService.getSubjects()
     			  .subscribe(subjects => this.subjects = subjects);*/
   }
-  addRow(lender: string, borrower: string, writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
-    this.offerings.push(new Offering(4, lender, borrower, writer, title, year, publisher, p_year, ISBN));
+  
+  borrow(isbn: string) {
+    for(var i=0; i<this.offerings.length; i++) {
+	  if(this.offerings[i].ISBN == isbn && this.offerings[i].borrower == 'Senki') {
+	    this.offerings[i].borrower = 'valaki';
+	  }
+	}
   }
+  
   /*modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
     // here we update a row in table
     var sub = new Subject(code, name, credit, teacher);
     this.subjectService.putSubject(scode, sub)
-        		  .subscribe(subjects => this.subjects = subjects);
-  }
-  delRow(scode: string) {
-    // here we delete a row in table
-    this.subjectService.deleteSubject(scode)
         		  .subscribe(subjects => this.subjects = subjects);
   }*/
 }

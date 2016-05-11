@@ -8,6 +8,7 @@ CREATE TABLE users (
   place varchar(50) DEFAULT NULL,
   password varchar(50) DEFAULT NULL,
   guid varchar(50) DEFAULT NULL,
+  point int(11) DEFAULT NULL,
   PRIMARY KEY (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -33,11 +34,11 @@ CREATE TABLE offers (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO users
-(username,email,place,password,guid)
+(username,email,place,password,guid,point)
 VALUES
-('valaki', 'valaki@valaki.hu', 'valahol', 'probajelszo', 'proba1'),
-('masvalaki', 'masvalaki@masvalaki.hu', 'mashol', 'masikproba', 'proba2'),
-('bonbon', 'bonbon@bonbonetti.hu', 'mittudomenhol', 'megegyproba', 'proba3');
+('valaki', 'valaki@valaki.hu', 'valahol', 'probajelszo', 'proba1', 0),
+('masvalaki', 'masvalaki@masvalaki.hu', 'mashol', 'masikproba', 'proba2', 0),
+('bonbon', 'bonbon@bonbonetti.hu', 'mittudomenhol', 'megegyproba', 'proba3', 0);
 
 INSERT INTO books
 (ISBN,writer,title,year,publisher,p_year)

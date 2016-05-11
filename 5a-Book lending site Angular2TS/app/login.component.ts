@@ -1,7 +1,7 @@
-import {Component, OnInit} 	from 'angular2/core';
-/*import {Book} 			from './book';
+import {Component} 	from 'angular2/core';
+/*import {Book} 			from './book';*/
 import {User} 			from './user';
-import {Offer} 			from './offer';
+/*import {Offer} 			from './offer';
 import {SubjectService} 	from './subject.service';*/
 
 @Component({
@@ -10,33 +10,31 @@ import {SubjectService} 	from './subject.service';*/
   templateUrl: 'app/public/login.html'
 })
 
-export class LoginComponent implements OnInit {
+// gettelni fog és összehasonlítani, keresni
+export class LoginComponent {
 
-  /*constructor(private subjectService: SubjectService) {
+  users = [ new User('valaki','valaki@valaki.hu','valahol','probajelszo','proba1'),
+  	    new User('masvalaki','masvalaki@masvalaki.hu','mashol','masikproba','proba2'),
+  	    new User('bonbon','bonbon@bonbonetti.hu','mittudomenhol','megegyproba','proba3')
+  ]
 
-  }*/
-
-  ngOnInit() {
-    this.getRows();
+  validateLogin(username: string, password: string) {
+    var auth = false;
+    for (var i=0; i<this.users.length; i++) {
+		if (this.users[i].username == username && this.users[i].password == password) {
+			auth = true;
+		}
+    }
+    if(auth==false) {
+    	alert('Nem sikerült a bejelentkezés!');
+    }
+    else {
+		alert('Sikerült a bejelentkezés!');
+    }
   }
-
   getRows() {
     /*// here we get all the subjects from database
     this.subjectService.getSubjects()
     			  .subscribe(subjects => this.subjects = subjects);*/
   }
-  addRow(lender: string, borrower: string, writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
-    
-  }
-  /*modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
-    // here we update a row in table
-    var sub = new Subject(code, name, credit, teacher);
-    this.subjectService.putSubject(scode, sub)
-        		  .subscribe(subjects => this.subjects = subjects);
-  }
-  delRow(scode: string) {
-    // here we delete a row in table
-    this.subjectService.deleteSubject(scode)
-        		  .subscribe(subjects => this.subjects = subjects);
-  }*/
 }

@@ -11,6 +11,7 @@ import {Lending} 		from './lending';
   templateUrl: 'app/public/mydata.html'
 })
 
+// gettelni és postolni fog, esetleg módosítani, törölni is
 export class MyDataComponent implements OnInit {
   
   mydata = [new MyData('valaki', 'valaki@valaki.hu', 'valahol', 5)];
@@ -33,6 +34,12 @@ export class MyDataComponent implements OnInit {
   addRow(writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
     this.lendings.push(new Lending('Senki', writer, title, year, publisher, p_year, ISBN));
   }
+  /*addRow(code: string, name: string, credit: number, teacher: string) {
+    // here we insert row to table
+    var sub = new Subject(code, name, credit, teacher);
+    this.subjectService.postSubject(sub)
+        		  .subscribe(subjects => this.subjects = subjects);
+  }*/
   /*modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
     // here we update a row in table
     var sub = new Subject(code, name, credit, teacher);
