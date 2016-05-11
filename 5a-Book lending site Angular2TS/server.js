@@ -23,9 +23,6 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: 'true' }));
 app.use(bodyParser.json());
 
-console.log(md5('message'));
-console.log(md5('messages'));
-console.log(md5('oldies'));
 
 app.get('/api/offers', function(req, res) {
 	// offers oldalon lévő táblázat tartalma
