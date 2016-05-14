@@ -1,54 +1,55 @@
 ﻿import {Component, OnInit} 	from 'angular2/core';
-/*import {SubjectService} 	from './subject.service';*/
+import {MyDataService} 		from './mydata.service';
 
-import {MyData} 		from './mydata';
-import {Borrowing} 		from './borrowing';
-import {Lending} 		from './lending';
+import {MyData} 			from './mydata';
+import {Borrowing} 			from './borrowing';
+import {Lending} 			from './lending';
+import {Book} 				from './book';
+import {Offer} 				from './offer';
 
 @Component({
   selector: 'mydata',
-  /*viewProviders: [SubjectService],*/
+  viewProviders: [MyDataService],
   templateUrl: 'app/public/mydata.html'
 })
 
 // gettelni és postolni fog, esetleg módosítani, törölni is
 export class MyDataComponent implements OnInit {
   
-  mydata = [new MyData('valaki', 'valaki@valaki.hu', 'valahol', 5)];
-  borrowings = [new Borrowing('masvalaki', 'George Orwell', '1984', 1948, 'Európa Könyvkiadó', 1989, '1234')];
-  lendings = [new Lending('masvalaki', 'Petőfi Sándor', 'Összes költeményei', 1986, 'Szépirodalmi Könyvkiadó', 1986, '2345')];
-  
-  /*constructor(private subjectService: SubjectService) {
+  constructor(private myDataService: MyDataService) {
 
-  }*/
+  }
+  
+  mydata = [];
+  borrowings = [];
+  lendings = [];
+  username = 'iszak';
 
   ngOnInit() {
-    this.getRows();
+    this.getMyData();
+    this.getBorrowings();
+    this.getLendings();
   }
 
-  getRows() {
-    /*// here we get all the subjects from database
-    this.subjectService.getSubjects()
-    			  .subscribe(subjects => this.subjects = subjects);*/
+  getMyData() {
+    this.myDataService.getMyData(this.username)
+    			  .subscribe(mydata => this.mydata = mydata);
   }
-  addRow(writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
-    this.lendings.push(new Lending('Senki', writer, title, year, publisher, p_year, ISBN));
+  getBorrowings() {
+    this.myDataService.getBorrowings(this.username)
+    			  .subscribe(borrowings => this.borrowings = borrowings);
   }
-  /*addRow(code: string, name: string, credit: number, teacher: string) {
-    // here we insert row to table
-    var sub = new Subject(code, name, credit, teacher);
-    this.subjectService.postSubject(sub)
-        		  .subscribe(subjects => this.subjects = subjects);
-  }*/
-  /*modRow(code: string, name: string, credit: number, teacher: string, scode: string) {
-    // here we update a row in table
-    var sub = new Subject(code, name, credit, teacher);
-    this.subjectService.putSubject(scode, sub)
-        		  .subscribe(subjects => this.subjects = subjects);
+  getLendings() {
+    this.myDataService.getLendings(this.username)
+    			  .subscribe(lendings => this.lendings = lendings);
   }
-  delRow(scode: string) {
-    // here we delete a row in table
-    this.subjectService.deleteSubject(scode)
-        		  .subscribe(subjects => this.subjects = subjects);
-  }*/
+  addLending(writer: string, title: string, year: number, publisher: string, p_year: number, ISBN: string) {
+    var book = new Book(writer, title, year, publisher, p_year, ISBN);
+    this.myDataService.postBook(book)
+        		  .subscribe(books => console.log(books));
+    
+    var off = new Offer(null, this.username, null, ISBN);
+    this.myDataService.postLending(off)
+        		  .subscribe(lendings => this.lendings = lendings);
+  }
 }
