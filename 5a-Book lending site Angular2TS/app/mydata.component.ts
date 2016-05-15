@@ -10,7 +10,8 @@ import {Offer} 				from './offer';
 @Component({
   selector: 'mydata',
   viewProviders: [MyDataService],
-  templateUrl: 'app/public/mydata.html'
+  templateUrl: 'app/public/mydata.html',
+  styleUrls: ['app/public/css/mystyle.css']
 })
 
 // gettelni és postolni fog, esetleg módosítani, törölni is
@@ -23,7 +24,7 @@ export class MyDataComponent implements OnInit {
   mydata = [];
   borrowings = [];
   lendings = [];
-  username = 'iszak';
+  username = 'bonbon';
 
   ngOnInit() {
     this.getMyData();

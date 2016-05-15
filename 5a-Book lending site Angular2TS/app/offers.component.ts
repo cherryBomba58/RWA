@@ -6,7 +6,8 @@ import {Offering}			from './offering';
 @Component({
   selector: 'offers',
   viewProviders: [OffersService],
-  templateUrl: 'app/public/offers.html'
+  templateUrl: 'app/public/offers.html',
+  styleUrls: ['app/public/css/mystyle.css']
 })
 
 // gettelni és putolni fog
@@ -28,7 +29,7 @@ export class OffersComponent implements OnInit {
   }
   
   borrow(offerid: number) {
-    var off = new Offering(offerid,'','iszak','','',0,'',0,'');
+    var off = new Offering(offerid,'','bonbon','','',0,'',0,'');
     this.offersService.putBorrower(offerid, off)
         		  .subscribe(offerings => this.offerings = offerings);
   }

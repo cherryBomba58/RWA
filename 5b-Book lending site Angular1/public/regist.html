@@ -94,40 +94,41 @@
 	        <div class="row">
 	            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	                <!-- Registration Form -->
-	                <form name="regist" id="registForm" novalidate>
+	                <form name="regist" id="registForm" role="form" data-toggle="validator">
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Felhasználónév</label>
 	                            <input ng-model="username" type="text" class="form-control" placeholder="Felhasználónév" id="username" required data-validation-required-message="Kérlek add meg a felhasználónevedet.">
-	                            <p class="help-block text-danger"></p>
+	                            <p class="help-block with-errors text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Email cím</label>
-	                            <input ng-model="email" type="email" class="form-control" placeholder="Email cím" id="email" required data-validation-required-message="Kérlek add meg az email címedet.">
-	                            <p class="help-block text-danger"></p>
+	                            <input ng-model="email" type="email" class="form-control" placeholder="Email cím" id="email" data-error="Rossz az email cím formátuma!" required data-validation-required-message="Kérlek add meg az email címedet.">
+	                            <p class="help-block with-errors text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Település</label>
 	                            <input ng-model="city" type="text" class="form-control" placeholder="Település" id="city" required data-validation-required-message="Kérlek add meg a lakhelyedet.">
-	                            <p class="help-block text-danger"></p>
+	                            <p class="help-block with-errors text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Jelszó</label>
-	                            <input ng-model="password" type="password" class="form-control" placeholder="Jelszó" id="password" required data-validation-required-message="Kérlek add meg a jelszavadat.">
-	                            <p class="help-block text-danger"></p>
+	                            <input ng-model="password" type="password" data-minlength="6" class="form-control" placeholder="Jelszó" id="password" required data-validation-required-message="Kérlek add meg a jelszavadat.">
+	                            <p class="help-block with-errors text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Jelszó még egyszer</label>
-	                            <input ng-model="password2" type="password" class="form-control" placeholder="Jelszó még egyszer" id="password2" required data-validation-required-message="Kérlek add meg a jelszavadat még egyszer.">
-	                            <p class="help-block text-danger"></p>
+	                            <input ng-model="password2" type="password" class="form-control" placeholder="Jelszó még egyszer" id="password2" 
+	                            	data-match="#password" data-match-error="Nem egyenlő a két jelszó!" required data-validation-required-message="Kérlek add meg a jelszavadat még egyszer.">
+	                            <p class="help-block with-errors text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <br>
@@ -182,6 +183,9 @@
     
     <!-- AngularJS Core JavaScript -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+	<!-- Bootstrap Validator -->
+	<script src="js/validator.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
