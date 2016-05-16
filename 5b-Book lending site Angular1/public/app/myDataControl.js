@@ -1,19 +1,60 @@
 ﻿var app = angular.module("myDataApp", []);
-app.controller("myDataControl", function($scope) {
-	$scope.mydata = [
-		{username:'valaki',email:'valaki@valaki.hu',place:'valahol',point:'5'}
-	];
-	$scope.borrowings = [
-		{lender:'masvalaki',writer:'George Orwell',title:'1984',year:'1948',
-		publisher:'Európa Könyvkiadó',p_year:'1989',isbn:'1234'}
-	];
-	$scope.lendings = [
-		{borrower:'masvalaki',writer:'Petőfi Sándor',title:'Összes költeményei',
-		year:'1986',publisher:'Szépirodalmi Könyvkiadó',p_year:'1986',isbn:'2345'}
-	];
+app.controller("myDataControl", function($scope, $http) {
+	$scope.mydata = [];
+	$scope.borrowings = [];
+	$scope.lendings = [];
+	$scope.username = 'masvalaki';
+	
+	$http.get('/api/mydata/' + $scope.username)
+		 .success(function(data) {
+		 	$scope.mydata = data;
+		 	console.log(data);
+		 })
+		 .error(function(data) {
+		 	console.log('Error: ' + data);
+		 });
+		 
+	$http.get('/api/borrowings/' + $scope.username)
+		 .success(function(data) {
+		 	$scope.borrowings = data;
+		 	console.log(data);
+		 })
+		 .error(function(data) {
+		 	console.log('Error: ' + data);
+		 });
+		 
+	$http.get('/api/lendings/' + $scope.username)
+		 .success(function(data) {
+		 	$scope.lendings = data;
+		 	console.log(data);
+		 })
+		 .error(function(data) {
+		 	console.log('Error: ' + data);
+		 });
+	
 	$scope.addLending = function() {
-		$scope.lendings.push({borrower:'Senki',writer:$scope.writer,title:$scope.title,
-			year:$scope.year, publisher:$scope.publisher, p_year:$scope.p_year,
-			isbn:$scope.isbn});
+		// könyv felvétele a könyvek adatbázisába
+		$scope.book = {writer:$scope.writer,title:$scope.title,year:$scope.year,
+			publisher:$scope.publisher, p_year:$scope.p_year,ISBN:$scope.ISBN};
+			
+        $http.post('/api/books', $scope.book)
+            .success(function(data) {
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+            
+        // kölcsönadási ajánlat felvétele az ajánlatok közé
+        $scope.lend = {offerid:null,lender:$scope.username,borrower:null,bookid:$scope.ISBN};
+			
+		$http.post('/api/offers', $scope.lend)
+            .success(function(data) {
+                $scope.lendings = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
 	}
 });

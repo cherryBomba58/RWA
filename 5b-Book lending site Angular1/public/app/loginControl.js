@@ -1,25 +1,29 @@
-﻿var app = angular.module("loginApp", []);
-app.controller("loginControl", function($scope) {
-	$scope.users = [
-		{username:'valaki',email:'valaki@valaki.hu',place:'valahol',password:'probajelszo',
-		guid:'proba1'},
-		{username:'masvalaki',email:'masvalaki@masvalaki.hu',place:'mashol',
-		password:'masikproba',guid:'proba2'},
-		{username:'bonbon',email:'bonbon@bonbonetti.hu',place:'mittudomenhol',
-		password:'megegyproba',guid:'proba3'}
-	];
+﻿// gettelni fog és összehasonlítani, keresni
+var app = angular.module("loginApp", []);
+app.controller("loginControl", function($scope, $http) {
+
+	$scope.users = [];
+	
 	$scope.validateLogin = function() {
-		var auth = false;
-		for (i=0; i<$scope.users.length; i++) {
-			if ($scope.users[i].username == $scope.username && $scope.users[i].password == $scope.password) {
-				auth = true;
-			}
-		}
-		if(auth==false) {
-			alert('Nem sikerült a bejelentkezés!');
-		}
-		else {
-			alert('Sikerült a bejelentkezés!');
-		}
+		$http.get('/api/users/' + $scope.username)
+			 .success(function(data) {
+			 	$scope.users = data;
+			 	console.log(data);
+			 	console.log($scope.users[0].password);
+				var auth = false;
+				if ($scope.users[0].password == $scope.password) {
+					auth = true;
+				}
+		
+				if(auth==false) {
+					alert('Nem sikerült a bejelentkezés!');
+				}
+				else {
+					alert('Sikerült a bejelentkezés!');
+				}
+			 		})
+			 .error(function(data) {
+			 	console.log('error: ' + data);
+		});
 	}
 });
