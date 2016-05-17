@@ -1,6 +1,5 @@
-﻿// gettelni fog és összehasonlítani, keresni
-var app = angular.module("loginApp", []);
-app.controller("loginControl", function($scope, $http) {
+﻿var app = angular.module("loginApp", ['ngCookies']);
+app.controller("loginControl", ['$scope','$http','$cookies',function($scope, $http, $cookies) {
 
 	$scope.users = [];
 	
@@ -12,18 +11,21 @@ app.controller("loginControl", function($scope, $http) {
 			 	console.log($scope.users[0].password);
 				var auth = false;
 				if ($scope.users[0].password == $scope.password) {
+					$cookies.put('username', $scope.username);
 					auth = true;
 				}
 		
 				if(auth==false) {
-					alert('Nem sikerült a bejelentkezés!');
+					alert('Nem jó a jelszó!');
 				}
 				else {
-					alert('Sikerült a bejelentkezés!');
+					var myusername = $cookies.get('username');
+					alert('Sikerült a bejelentkezés! Üdvözöllek, kedves ' + myusername + '!');
 				}
-			 		})
+			 })
 			 .error(function(data) {
 			 	console.log('error: ' + data);
-		});
+			 	alert('Nincs ilyen felhasználó!');
+			 });
 	}
-});
+}]);

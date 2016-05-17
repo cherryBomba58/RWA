@@ -1,7 +1,7 @@
-﻿var app = angular.module("offersApp", []);
-app.controller("offersControl", function($scope, $http) {
+﻿var app = angular.module("offersApp", ['ngCookies']);
+app.controller("offersControl", ['$scope','$http','$cookies',function($scope, $http, $cookies) {
 	$scope.offers = [];
-	$scope.username = 'masvalaki';
+	var myusername = $cookies.get('username');
 	
 	$http.get('/api/offers')
 		 .success(function(data) {
@@ -13,7 +13,7 @@ app.controller("offersControl", function($scope, $http) {
 		 });
 	
 	$scope.borrow = function(offerid) {
-		$scope.off = {offerid:offerid,borrower:$scope.username};
+		$scope.off = {offerid:offerid,borrower:myusername};
 			
 		$http.put('/api/offers/' + offerid, $scope.off)
             .success(function(data) {
@@ -24,4 +24,4 @@ app.controller("offersControl", function($scope, $http) {
                 console.log('Error: ' + data);
             });
 	}
-});
+}]);

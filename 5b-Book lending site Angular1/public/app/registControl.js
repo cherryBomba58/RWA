@@ -1,5 +1,5 @@
-﻿var app = angular.module("registApp", []);
-app.controller("registControl", function($scope, $http) {
+﻿var app = angular.module("registApp", ['ngCookies']);
+app.controller("registControl", ['$scope','$http','$cookies',function($scope, $http, $cookies) {
 	
 	$scope.validateRegist= function() {
 		if($scope.password != $scope.password2) {
@@ -20,4 +20,4 @@ app.controller("registControl", function($scope, $http) {
 	            });
 		}
 	}
-});
+}]);

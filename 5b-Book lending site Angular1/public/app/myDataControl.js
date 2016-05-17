@@ -1,11 +1,11 @@
-﻿var app = angular.module("myDataApp", []);
-app.controller("myDataControl", function($scope, $http) {
+﻿var app = angular.module("myDataApp", ['ngCookies']);
+app.controller("myDataControl", ['$scope','$http','$cookies',function($scope, $http, $cookies) {
 	$scope.mydata = [];
 	$scope.borrowings = [];
 	$scope.lendings = [];
-	$scope.username = 'masvalaki';
+	var myusername = $cookies.get('username');
 	
-	$http.get('/api/mydata/' + $scope.username)
+	$http.get('/api/mydata/' + myusername)
 		 .success(function(data) {
 		 	$scope.mydata = data;
 		 	console.log(data);
@@ -14,7 +14,7 @@ app.controller("myDataControl", function($scope, $http) {
 		 	console.log('Error: ' + data);
 		 });
 		 
-	$http.get('/api/borrowings/' + $scope.username)
+	$http.get('/api/borrowings/' + myusername)
 		 .success(function(data) {
 		 	$scope.borrowings = data;
 		 	console.log(data);
@@ -23,7 +23,7 @@ app.controller("myDataControl", function($scope, $http) {
 		 	console.log('Error: ' + data);
 		 });
 		 
-	$http.get('/api/lendings/' + $scope.username)
+	$http.get('/api/lendings/' + myusername)
 		 .success(function(data) {
 		 	$scope.lendings = data;
 		 	console.log(data);
@@ -46,7 +46,7 @@ app.controller("myDataControl", function($scope, $http) {
             });
             
         // kölcsönadási ajánlat felvétele az ajánlatok közé
-        $scope.lend = {offerid:null,lender:$scope.username,borrower:null,bookid:$scope.ISBN};
+        $scope.lend = {offerid:null,lender:myusername,borrower:null,bookid:$scope.ISBN};
 			
 		$http.post('/api/offers', $scope.lend)
             .success(function(data) {
@@ -57,4 +57,4 @@ app.controller("myDataControl", function($scope, $http) {
                 console.log('Error: ' + data);
             });
 	}
-});
+}]);
