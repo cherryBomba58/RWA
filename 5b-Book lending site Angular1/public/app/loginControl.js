@@ -7,26 +7,21 @@ app.controller("loginControl", ['$scope','$http','$cookies','md5',function($scop
 		$http.get('/api/users/' + $scope.username)
 			 .success(function(data) {
 			 	$scope.users = data;
-			 	console.log(data);
-			 	console.log($scope.users[0].password);
-			 	console.log(md5.createHash($scope.password || ''));
-				var auth = false;
-				if ($scope.users[0].password == md5.createHash($scope.password || '')) {
-					$cookies.put('username', $scope.username);
-					auth = true;
+				if($scope.users[0] == null) {
+					$scope.successmessage = 'Nincs ilyen felhasználó!';
 				}
-		
-				if(auth==false) {
-					alert('Nem jó a jelszó!');
+				else if($scope.users[0].password == md5.createHash($scope.password || '')) {
+					$cookies.put('username', $scope.username);
+					var myusername = $cookies.get('username');
+					$scope.successmessage = 'Sikerült a bejelentkezés! Üdvözöllek, kedves ' + myusername + '!';
 				}
 				else {
-					var myusername = $cookies.get('username');
-					alert('Sikerült a bejelentkezés! Üdvözöllek, kedves ' + myusername + '!');
+					$scope.successmessage = 'Nem jó a jelszó!';
 				}
 			 })
 			 .error(function(data) {
 			 	console.log('error: ' + data);
-			 	alert('Nincs ilyen felhasználó!');
+			 	$scope.successmessage = 'Sajnáljuk! Hiba történt. Nemsokára megoldjuk.';
 			 });
 	}
 }]);

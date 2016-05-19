@@ -12,11 +12,13 @@ app.controller("registControl", ['$scope','$http','$cookies',function($scope, $h
 			$http.post('/api/users', $scope.user)
 	            .success(function(data) {
 	                console.log(data);
-	                alert('Sikerült a regisztráció! (Bár egyelőre nem tudsz bejelentkezni)');
+	                //alert('Sikerült a regisztráció!');
+	                $scope.successmessage = 'Sikerült a regisztráció!\n';
 	            })
 	            .error(function(data) {
 	                console.log('Error: ' + data);
-	                alert('Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.');
+	                //alert('Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.');
+	                $scope.successmessage = 'Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.\n';
 	            });
 		}
 	}
