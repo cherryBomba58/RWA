@@ -1,6 +1,15 @@
 ﻿var app = angular.module("loginApp", ['ngCookies', 'angular-md5']);
-app.controller("loginControl", ['$scope','$http','$cookies','md5',function($scope, $http, $cookies, md5) {
+app.controller("loginControl", ['$scope','$http','$cookies','md5','$window',function($scope, $http, $cookies, md5, $window) {
 
+	var myusername = $cookies.get('username');
+	
+	$scope.visibleOnLogon = myusername?{'visibility': 'visible'}:{'display': 'none'};
+	$scope.visibleOnLogoff = myusername?{'display': 'none'}:{'visibility': 'visible'};
+			
+	$scope.logoff = function() {
+		$cookies.remove('username');
+	}
+	
 	$scope.users = [];
 	
 	$scope.validateLogin = function() {
@@ -14,6 +23,7 @@ app.controller("loginControl", ['$scope','$http','$cookies','md5',function($scop
 					$cookies.put('username', $scope.username);
 					var myusername = $cookies.get('username');
 					$scope.successmessage = 'Sikerült a bejelentkezés! Üdvözöllek, kedves ' + myusername + '!';
+					$window.location.href = '/mydata.html';
 				}
 				else {
 					$scope.successmessage = 'Nem jó a jelszó!';

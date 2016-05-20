@@ -33,76 +33,81 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Könyvkölcsönzés</a>
-            </div>
+	<div ng-app="indexApp" ng-controller="indexControl">
+	    <!-- Navigation -->
+	    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+	        <div class="container-fluid">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header page-scroll">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="index.html">Könyvkölcsönzés</a>
+	            </div>
+	
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li>
+		                	<a href="index.html">Főoldal</a>
+		                </li>
+		                <li>
+		                    <a href="offers.html" ng-style="visibleOnLogon">Ajánlatok</a>
+		                </li>
+		                <li>
+		                    <a href="mydata.html" ng-style="visibleOnLogon">Adataim</a>
+		                </li>
+		                <li>
+		                    <a href="regist.html" ng-style="visibleOnLogoff">Regisztráció</a>
+		                </li>
+		                <li>
+		                	<a href="login.html" ng-style="visibleOnLogoff">Bejelentkezés</a>
+		                </li>
+		                <li>
+		                    <a href="login.html" ng-click="logoff()" ng-style="visibleOnLogon">Kijelentkezés</a>
+		                </li>
+	                </ul>
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container -->
+	    </nav>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="index.html">Főoldal</a>
-                    </li>
-                    <li>
-                        <a href="offers.html">Ajánlatok</a>
-                    </li>
-                    <li>
-                        <a href="mydata.html">Adataim</a>
-                    </li>
-                    <li>
-                        <a href="regist.html">Regisztráció</a>
-                    </li>
-                    <li>
-                        <a href="login.html">Bejelentkezés</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/rose.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>Könyvkölcsönzés</h1>
-                        <hr class="small">
-                        <span class="subheading">Készítette: cherryBomba58</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>Üdvözöllek weboldalamon!</p>
-                <p>Te is úgy gondolod, hogy a drága könyvesboltok és webshopok helyett inkább csatlakoznál egy olyan közösséghez, melynek tagjai szívesen kölcsönöznek egymásnak könyveket kedvező áron, vagy akár ingyen?</p>
-                <p>Szeretnél megválni fölösleges könyveidtől? És szeretnél a kölcsönadásaidból profitálni is? Mert a hónap legaktívabb kölcsönadója értékes jutalomban részesül!</p>
-                <p>Ha bármelyik kérdésre igent válaszoltál, kérlek regisztrálj <a href="regist.html">itt</a>.</p>
-                <p>Vagy ha már tagja vagy remek közösségünknek, akkor jelentkezz be <a href="login.html">ezen az oldalon</a>.</p>
-                <p>A közösség tagjainak legújabb ajánlataiért látogass <a href="offers.html">ide</a>.</p>
-                <p>Saját kölcsönzéseidet és kölcsönadásaidat, valamint az értük járó pontszámaidat <a href="mydata.html">itt</a> tekintheted meg.</p>
-                <p>Ha hibát észleltél az oldalon, akkor jelezd nekem a GitHub repository-mnál az Issues oldalon. Ehhez megtalálod a linket alul.</p>
-            </div>
-        </div>
-    </div>
+	    <!-- Page Header -->
+	    <!-- Set your background image for this header on the line below. -->
+	    <header class="intro-header" style="background-image: url('img/rose.jpg')">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	                    <div class="site-heading">
+	                        <h1>Könyvkölcsönzés</h1>
+	                        <hr class="small">
+	                        <span class="subheading">Készítette: cherryBomba58</span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </header>
+	
+	    <!-- Main Content -->
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	                <p>Üdvözöllek weboldalamon!</p>
+	                <p ng-style="visibleOnLogoff">Te is úgy gondolod, hogy a drága könyvesboltok és webshopok helyett inkább csatlakoznál egy olyan közösséghez, melynek tagjai szívesen kölcsönöznek egymásnak könyveket kedvező áron, vagy akár ingyen?</p>
+	                <p ng-style="visibleOnLogoff">Szeretnél megválni fölösleges könyveidtől? És szeretnél a kölcsönadásaidból profitálni is? Mert a hónap legaktívabb kölcsönadója értékes jutalomban részesül!</p>
+	                <p ng-style="visibleOnLogoff">Ha bármelyik kérdésre igent válaszoltál, kérlek regisztrálj <a href="regist.html">itt</a>.</p>
+	                <p ng-style="visibleOnLogoff">Vagy ha már tagja vagy remek közösségünknek, akkor jelentkezz be <a href="login.html">ezen az oldalon</a>.</p>
+	                <p ng-style="visibleOnLogon">A közösség tagjainak legújabb ajánlataiért látogass <a href="offers.html">ide</a>.</p>
+	                <p ng-style="visibleOnLogon">Saját kölcsönzéseidet és kölcsönadásaidat, valamint az értük járó pontszámaidat <a href="mydata.html">itt</a> tekintheted meg.</p>
+	                <p>Ha hibát észleltél az oldalon, akkor jelezd nekem a GitHub repository-mnál az Issues oldalon. Ehhez megtalálod a linket alul.</p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 
     <hr>
 
@@ -140,9 +145,14 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+    
+    <!-- AngularJS Core JavaScript -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/clean-blog.min.js"></script>
+    <script src="app/indexControl.js"></script>
 
 </body>
 

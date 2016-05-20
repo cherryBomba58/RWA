@@ -1,6 +1,15 @@
 ﻿var app = angular.module("registApp", ['ngCookies']);
 app.controller("registControl", ['$scope','$http','$cookies',function($scope, $http, $cookies) {
 	
+	var myusername = $cookies.get('username');
+	
+	$scope.visibleOnLogon = myusername?{'visibility': 'visible'}:{'display': 'none'};
+	$scope.visibleOnLogoff = myusername?{'display': 'none'}:{'visibility': 'visible'};
+			
+	$scope.logoff = function() {
+		$cookies.remove('username');
+	}
+
 	$scope.validateRegist= function() {
 		if($scope.password != $scope.password2) {
 			alert('Nem egyenlő a két jelszó!');

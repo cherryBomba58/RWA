@@ -5,6 +5,13 @@ app.controller("myDataControl", ['$scope','$http','$cookies',function($scope, $h
 	$scope.lendings = [];
 	var myusername = $cookies.get('username');
 	
+	$scope.visibleOnLogon = myusername?{'visibility': 'visible'}:{'display': 'none'};
+	$scope.visibleOnLogoff = myusername?{'display': 'none'}:{'visibility': 'visible'};
+			
+	$scope.logoff = function() {
+		$cookies.remove('username');
+	}
+	
 	$http.get('/api/mydata/' + myusername)
 		 .success(function(data) {
 		 	$scope.mydata = data;
