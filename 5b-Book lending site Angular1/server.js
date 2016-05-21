@@ -224,6 +224,20 @@ app.get('/api/users/:username', function(req, res) {
 	});
 });
 
+app.get('/api/books/:isbn', function(req, res) {
+	// ellenőrzés, hogy ez a könyv benne van-e az adatbázisban
+	con.query("SELECT title FROM books WHERE ISBN=?", [req.params.isbn],
+	function(err,rows){
+		if(err) {
+			console.log("Error: server.js/app.get/api/books/:isbn " + err);
+    		res.send(err);
+    	} else {
+    		console.log(rows);
+    		res.json(rows);
+    	}
+	});
+});
+
 
 app.listen(3000,function(){
 	console.log("It works at 3000 port");

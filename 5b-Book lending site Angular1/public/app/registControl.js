@@ -12,23 +12,33 @@ app.controller("registControl", ['$scope','$http','$cookies',function($scope, $h
 
 	$scope.validateRegist= function() {
 		if($scope.password != $scope.password2) {
-			alert('Nem egyenlő a két jelszó!');
+			$scope.successmessage = 'Nem egyenlő a két jelszó!';
 		}
 		else {
-			$scope.user = {username:$scope.username,email:$scope.email,
-				place:$scope.place,password:$scope.password,guid:'AAAAAAAA'};
-			
-			$http.post('/api/users', $scope.user)
-	            .success(function(data) {
-	                console.log(data);
-	                //alert('Sikerült a regisztráció!');
-	                $scope.successmessage = 'Sikerült a regisztráció!\n';
-	            })
-	            .error(function(data) {
-	                console.log('Error: ' + data);
-	                //alert('Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.');
-	                $scope.successmessage = 'Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.\n';
-	            });
-		}
+			$http.get('/api/users/' + $scope.username)
+		 		.success(function(data) {
+		 			console.log(data);
+		 			if(data[0] != null) {
+		 				$scope.successmessage = 'Már van ilyen felhasználó! Válassz másik nevet!';
+		 			}
+		 			else {
+		 				$scope.user = {username:$scope.username,email:$scope.email,
+							place:$scope.place,password:$scope.password,guid:'AAAAAAAA'};
+						
+						$http.post('/api/users', $scope.user)
+				            .success(function(data) {
+				                console.log(data);
+				                $scope.successmessage = 'Sikerült a regisztráció!\n';
+				            })
+				            .error(function(data) {
+				                console.log('Error: ' + data);
+				                $scope.successmessage = 'Hiba történt a regisztrációkor! Elnézést kérünk, nemsokára javítjuk a hibát.\n';
+				            });
+		 			}
+		 		})
+		 		.error(function(data) {
+		 			console.log('Error: ' + data);
+		 		});
+			}
 	}
 }]);

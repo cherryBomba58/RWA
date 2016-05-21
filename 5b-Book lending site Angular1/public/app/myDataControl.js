@@ -40,28 +40,38 @@ app.controller("myDataControl", ['$scope','$http','$cookies',function($scope, $h
 		 });
 	
 	$scope.addLending = function() {
-		// könyv felvétele a könyvek adatbázisába
-		$scope.book = {writer:$scope.writer,title:$scope.title,year:$scope.year,
-			publisher:$scope.publisher, p_year:$scope.p_year,ISBN:$scope.ISBN};
+		// könyv felvétele a könyvek adatbázisába, ha még nincs ott
+		$http.get('/api/books/' + $scope.ISBN)
+	    	.success(function(data) {
+	        	console.log(data);
+	        	if(data[0] == null) {
+	        		$scope.book = {writer:$scope.writer,title:$scope.title,year:$scope.year,
+						publisher:$scope.publisher,p_year:$scope.p_year,ISBN:$scope.ISBN};
+						
+					console.log($scope.book);
+						
+			        $http.post('/api/books', $scope.book)
+			            .success(function(data) {
+			                console.log(data);
+			            })
+			            .error(function(data) {
+			                console.log('Error: ' + data);
+			            });
+	        	}
+	        	
+	        	$scope.lend = {offerid:null,lender:myusername,borrower:null,bookid:$scope.ISBN};
 			
-        $http.post('/api/books', $scope.book)
-            .success(function(data) {
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
-            
-        // kölcsönadási ajánlat felvétele az ajánlatok közé
-        $scope.lend = {offerid:null,lender:myusername,borrower:null,bookid:$scope.ISBN};
-			
-		$http.post('/api/offers', $scope.lend)
-            .success(function(data) {
-                $scope.lendings = data;
-                console.log(data);
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
+				$http.post('/api/offers', $scope.lend)
+		            .success(function(data) {
+		                $scope.lendings = data;
+		                console.log(data);
+		            })
+		            .error(function(data) {
+		                console.log('Error: ' + data);
+		            });
+	        })
+	        .error(function(data) {
+	        	console.log('Error: ' + data);
+	        });
 	}
 }]);
