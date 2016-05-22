@@ -181,39 +181,39 @@
 	            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	            	<p><span class="section-title">Új könyv-kölcsönadási ajánlat felvétele</span></p>
 	                <!-- Form to add a book to the list -->
-	                <form name="addBook" id="addBookForm" novalidate>
+	                <form name="addBook" id="addBookForm">
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Szerző</label>
-	                            <input ng-model="writer" type="text" class="form-control" placeholder="Szerző" id="writer" required data-validation-required-message="Kérlek add meg a szerzőt.">
+	                            <input ng-model="writer" type="text" class="form-control" placeholder="Szerző" id="writer">
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Cím</label>
-	                            <input ng-model="title" type="text" class="form-control" placeholder="Cím" id="title" required data-validation-required-message="Kérlek add meg a címet.">
+	                            <input ng-model="title" type="text" class="form-control" placeholder="Cím" id="title">
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Év</label>
-	                            <input ng-model="year" type="number" class="form-control" placeholder="Év" id="year" required data-validation-required-message="Kérlek add meg az évet.">
+	                            <input ng-model="year" type="number" class="form-control" placeholder="Év" id="year">
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Kiadó</label>
-	                            <input ng-model="publisher" type="text" class="form-control" placeholder="Kiadó" id="publisher" required data-validation-required-message="Kérlek add meg a kiadót.">
+	                            <input ng-model="publisher" type="text" class="form-control" placeholder="Kiadó" id="publisher">
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="row control-group">
 	                        <div class="form-group col-xs-12 floating-label-form-group controls">
 	                            <label>Kiadási év</label>
-	                            <input ng-model="p_year" type="number" class="form-control" placeholder="Kiadási év" id="p_year" required data-validation-required-message="Kérlek add meg a kiadás évét.">
+	                            <input ng-model="p_year" type="number" class="form-control" placeholder="Kiadási év" id="p_year">
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
@@ -225,7 +225,8 @@
 	                        </div>
 	                    </div>
 	                    <br>
-	                    <div id="success"></div>
+	                    <div id="success">{{ successmessage }}</div>
+	                    <br>
 	                </form>
 	                <div class="row">
 	                	<div class="form-group col-xs-12">
